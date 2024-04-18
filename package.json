@@ -2,15 +2,11 @@
   "name": "cambiar-nombre",
   "version": "0.0.1",
   "description": "cambiar descripción",
-  "main": "index.js",
   "scripts": {
     "prepare": "husky install",
     "release": "standard-version",
     "commit": "cz"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
