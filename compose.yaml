@@ -1,5 +1,4 @@
-version: "3.9" 
-name: django
+name: ${CONTAINER_NAME:?container name is not defined...}-django
 services: 
   dev: 
     container_name: ${CONTAINER_NAME:?container name is not defined...}-dev
