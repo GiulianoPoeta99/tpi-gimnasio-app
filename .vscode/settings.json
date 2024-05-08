@@ -1,7 +1,10 @@
 {
     "conventionalCommits.scopes": [
         "documentation",
-        "app",
-        "docker"
+        "configuration",
+        "docker",
+        "backend",
+        "frontend",
+        "migration"
     ]
 }
