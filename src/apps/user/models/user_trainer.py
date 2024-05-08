@@ -1,5 +1,5 @@
 from django.db import models
-from .users import User
+from .user import User
 
 class UserTrainer(models.Model):
     user_trainer = models.ForeignKey( User, on_delete=models.CASCADE)
