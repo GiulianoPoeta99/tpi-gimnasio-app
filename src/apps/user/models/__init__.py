@@ -1,3 +1,3 @@
-from .user import User
-from .user_trainer import UserTrainer
-from .trainer import Trainer
+from .User import User
+from .User_trainer import UserTrainer
+from .Trainer import Trainer
