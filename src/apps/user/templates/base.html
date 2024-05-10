@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django Project{% endblock %}</title>
+    <!-- Enlaces a CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>MotionPath</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'user_create' %}">Create User</a></li>
+            {% if request.user.is_authenticated %}
+              <li><a href="{% url 'user_detail' pk=request.user.pk %}">View Profile</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+    <footer>
+        <p>© 2024 My Django Project. All rights reserved.</p>
+    </footer>
+    <!-- Enlaces a JavaScript -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

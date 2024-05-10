@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>User: {{ object.username }}</h1>
+  <p>Email: {{ object.email }}</p>
+  <p>Bio: {{ object.bio }}</p>
+  <a href="{% url 'user_edit' object.id %}">Edit</a>
+{% endblock %}
