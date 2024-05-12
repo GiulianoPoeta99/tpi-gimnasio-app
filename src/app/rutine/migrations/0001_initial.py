@@ -9,16 +9,19 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('difficulty_level', '0001_initial'),
+        ('rutine_type', '0001_initial'),
         ('user', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Trainer',
+            name='Rutine',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('is_verify', models.BooleanField(verbose_name=models.BooleanField(default=False))),
-                ('rate', models.IntegerField()),
+                ('name', models.CharField(max_length=60)),
+                ('difficulty_level_id', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='difficulty_level.difficultylevel')),
+                ('rutine_type_id', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='rutine_type.rutinetype')),
                 ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='user.user')),
             ],
         ),

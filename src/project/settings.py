@@ -46,6 +46,12 @@ INSTALLED_APPS = [
     'app.muscle_exercise',
     'app.muscle_group',
     'app.difficulty_level',
+    'app.assign_rutine',
+    'app.pick_rutine',
+    'app.rutine',
+    'app.rutine_exercise',
+    'app.rutine_has_rutine_type',
+    'app.rutine_type',
 ]
 
 MIDDLEWARE = [

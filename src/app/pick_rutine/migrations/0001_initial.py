@@ -9,16 +9,16 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('rutine', '0001_initial'),
         ('user', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Trainer',
+            name='PickRutine',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('is_verify', models.BooleanField(verbose_name=models.BooleanField(default=False))),
-                ('rate', models.IntegerField()),
+                ('Rutine_id', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='rutine.rutine')),
                 ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='user.user')),
             ],
         ),
