@@ -1,0 +1,18 @@
+<!-- templates/user/user_detail.html -->
+<html>
+<head>
+    <title>Detalle de Usuario</title>
+</head>
+<body>
+    <h1>Detail for User</h1>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+
+    <!-- Enlaces para editar o eliminar -->
+    <a href="{% url 'user_update' user.id %}">Edit</a>
+    <form action="{% url 'user_delete' user.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>
