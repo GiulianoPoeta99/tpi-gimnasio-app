@@ -1,5 +1,5 @@
 from django.db import models
-from app.rutine.models import Rutine
+from app.rutine.model import Rutine
 from app.exercise.models import Exercise
 
 class RutineExercise(models.Model):

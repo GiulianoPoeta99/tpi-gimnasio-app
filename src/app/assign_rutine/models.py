@@ -1,7 +1,7 @@
 from django.db import models
 from app.user.models import User
 from app.trainer.models import Trainer
-from app.rutine.models import Rutine
+from app.rutine.model import Rutine
 
 # Create your models here.
 class AssingRutine(models.Model):
