@@ -6,7 +6,7 @@ from ..models import User  # Importa el modelo de usuario personalizado
 
 class UserCreateView(CreateView):
     model = User
-    fields = ['username', 'email', 'password']
+    fields = ['first_name','last_name', 'email', 'password']
     template_name = 'user/user_form.html'
     
     def get_success_url(self):

@@ -20,15 +20,15 @@
         {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                 {% endfor %}
             </ul>
         {% endif %}
         <form method="post">
             {% csrf_token %}
             <div class="user-box">
-                <input type="text" name="username" required>
-                <label>Username</label>
+                <input type="text" name="email" required>
+                <label>Email</label>
             </div>
             <div class="user-box">
                 <input type="password" name="password" required>
