@@ -134,7 +134,7 @@ USE_TZ = bool(os.environ.get('USE_TZ'))
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'app/user/static'),
+    os.path.join(BASE_DIR, 'app/user/static/css'),
 ]
 
 
