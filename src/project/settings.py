@@ -13,6 +13,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 
+
+# Duración de la sesión en segundos (dos semanas)
+SESSION_COOKIE_AGE = 1209600  # 2 semanas
+
+# Para mantener la sesion si el navegador se cierra
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

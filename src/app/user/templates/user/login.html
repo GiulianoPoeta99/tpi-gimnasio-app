@@ -15,6 +15,11 @@
             color: red;
             font-weight: bold;
         }
+        
+        .remember-box{
+            color: white;
+        }
+
     </style>
 </head>
 <body>
@@ -36,6 +41,10 @@
             <div class="user-box">
                 <input type="password" name="password" required>
                 <label>Password</label>
+            </div>
+            <div class="remember-box">
+                <input type="checkbox" name="remember_me" id="remember_me">
+                <label for="remember_me">Remember me</label>
             </div>
             <a href="#" onclick="document.forms[0].submit(); return false;">
                 <span></span>
