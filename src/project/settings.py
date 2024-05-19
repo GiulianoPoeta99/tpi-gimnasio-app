@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'app.assign_rutine',
     'app.pick_rutine',
     'app.rutine',
-    'app.rutine_exercise',
     'app.rutine_type',
     'app.progress',
     'app.exercise_progress',

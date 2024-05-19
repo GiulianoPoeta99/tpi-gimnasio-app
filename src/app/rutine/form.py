@@ -1,9 +1,9 @@
 from django import forms
 
 from app.difficulty_level.models import DifficultyLevel
-from app.rutine_type.models import RutineType
+from app.rutine_type.model import RutineType
 from app.user.models import User
-from .model import Rutine
+from app.rutine.model import Rutine
 
 class RutineForm(forms.ModelForm):
     name = forms.CharField()
