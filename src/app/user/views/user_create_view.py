@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.shortcuts import redirect
 from django.contrib import messages
+from django.contrib.auth import get_user_model, authenticate, login
 from ..models import User  # Importa el modelo de usuario personalizado
 
 class UserCreateView(CreateView):
@@ -13,14 +14,24 @@ class UserCreateView(CreateView):
         return reverse_lazy('construction')
     
     def form_valid(self, form):
-        username = form.cleaned_data.get('username')
         email = form.cleaned_data.get('email')
-        if User.objects.filter(username=username).exists():
-            messages.error(self.request, 'Username already exists.')
-            return self.form_invalid(form)
+        password = form.cleaned_data.get('password')
+        
         if User.objects.filter(email=email).exists():
             messages.error(self.request, 'Email already exists.')
             return self.form_invalid(form)
+        
         # Encriptar la contraseña
-        form.instance.set_password(form.cleaned_data.get('password'))
-        return super().form_valid(form)
+        form.instance.set_password(password)
+        
+        # Guardar el nuevo usuario
+        response = super().form_valid(form)
+        
+        # Autenticar y hacer login al usuario
+        user = authenticate(self.request, email=email, password=password)
+        if user is not None:
+            login(self.request, user)
+        else:
+            messages.error(self.request, 'Authentication failed.')
+        
+        return response

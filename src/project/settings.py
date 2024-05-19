@@ -13,6 +13,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 
+
+# Duración de la sesión en segundos (dos semanas)
+SESSION_COOKIE_AGE = 1209600  # 2 semanas
+
+# Para mantener la sesion si el navegador se cierra
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -116,6 +123,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'app.user.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -133,7 +146,7 @@ USE_TZ = bool(os.environ.get('USE_TZ'))
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'app/user/static'),
+    os.path.join(BASE_DIR, 'app/user/static/css'),
 ]
 
 

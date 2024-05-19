@@ -1,51 +1,50 @@
-body, html {
+html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #000;
+    background: url('{% static 'images/fondohome3.png' %}') no-repeat center center / cover;
+}
+
+.navbar, .footer {
+    background-color: rgba(0, 0, 0, 0.3); /* Más transparencia */
+    padding: 5px 10px;
+    color: white;
+    font-size: 14px;
 }
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0.9); /* Más oscuro y translúcido */
-    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav-links {
+.nav-links, .social-links {
     display: flex;
     justify-content: center;
-    flex-grow: 1; /* Asegura que los enlaces empujen los íconos hacia la derecha */
 }
 
-.navbar a {
+.navbar a, .footer a {
     color: white;
     text-decoration: none;
-    padding: 20px;
-    margin-right: 12px;
+    padding: 10px;
+    margin-right: 8px;
 }
 
-.navbar a:hover {
-    color: #ff4500; 
+.navbar a:hover, .footer a:hover {
+    color: #ff4500;
 }
 
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 28px;
-}
-
-
-.social-links {
-    display: flex;
+.navbar-brand img {
+    width: 180px;
+    height: 44px;
+    margin-right: 5px;
 }
 
 .icon {
     padding: 0;
-    font-size: 16px; /* Más pequeños */
-    margin-left: 10px; /* Espacio entre íconos */
+    font-size: 16px;
+    margin-left: 5px;
 }
 
 .hero {
@@ -71,22 +70,11 @@ body, html {
 .hero-content {
     max-width: 90%;
     position: relative;
-    z-index: 2; 
+    z-index: 2;
 }
 
-h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 36px;
+h1, h2, p {
     margin-bottom: 20px;
-}
-
-p {
-    font-size: 24px;
-    margin-bottom: 40px;
 }
 
 .button {
@@ -99,7 +87,7 @@ p {
 }
 
 .button.primary {
-    background-color: #005f88; /* Azul */
+    background-color: #005f88;
 }
 
 .button.primary:hover {
@@ -108,10 +96,15 @@ p {
 
 .button.secondary {
     background-color: transparent;
-    border: 2px solid #ff4500; 
+    border: 2px solid #ff4500;
 }
 
 .button.secondary:hover {
     background-color: #ff4500;
     color: #005f88;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
 }
