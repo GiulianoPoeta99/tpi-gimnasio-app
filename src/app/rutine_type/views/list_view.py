@@ -1,8 +1,8 @@
 from django.views.generic import ListView
 
-from app.rutine.model import Rutine
+from app.rutine_type.model import RutineType
 
-class RutineIndexView(ListView):
-    model = Rutine
+class RutineTypeListView(ListView):
+    model = RutineType
     template_name = 'index.html'
     context_object_name = 'rutines'

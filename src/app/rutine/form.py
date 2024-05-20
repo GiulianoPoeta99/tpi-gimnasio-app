@@ -1,7 +1,8 @@
 from django import forms
+
 from app.difficulty_level.models import DifficultyLevel
 from app.rutine_type.model import RutineType
-from app.user.models import User
+from app.user.model import User
 from app.rutine.model import Rutine
 
 class RutineForm(forms.ModelForm):

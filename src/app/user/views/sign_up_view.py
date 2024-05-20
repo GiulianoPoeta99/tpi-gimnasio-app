@@ -3,12 +3,13 @@ from django.views.generic.edit import CreateView
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import get_user_model, authenticate, login
-from ..models import User  # Importa el modelo de usuario personalizado
 
-class UserCreateView(CreateView):
+from app.user.model import User
+
+class SignUpView(CreateView):
     model = User
     fields = ['first_name','last_name', 'email', 'password']
-    template_name = 'user/user_form.html'
+    template_name = 'sign_up.html'
     
     def get_success_url(self):
         return reverse_lazy('construction')

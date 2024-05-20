@@ -1,7 +1,8 @@
 from django.db import models
+
 from app.exercise_type.models import ExerciseType
 from app.difficulty_level.models import DifficultyLevel
-from app.user.models import User
+from app.user.model import User
 
 # Create your models here.
 class Exercise (models.Model):

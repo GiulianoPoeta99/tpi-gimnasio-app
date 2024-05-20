@@ -1,7 +1,8 @@
 from django.views.generic.detail import DetailView
-from ..models import User
+
+from app.user.model import User
 
 class UserDetailView(DetailView):
     model = User
-    template_name = 'user/user_detail.html'
+    template_name = 'detail.html'
     context_object_name = 'user'

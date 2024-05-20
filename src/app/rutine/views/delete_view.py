@@ -7,4 +7,4 @@ from app.rutine.model import Rutine
 class RutineDeleteView(DeleteView):
     model = Rutine
     template_name = 'delete.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('list')

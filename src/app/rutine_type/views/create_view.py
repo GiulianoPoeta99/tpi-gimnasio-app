@@ -9,4 +9,4 @@ class RutineTypeCreateView(CreateView):
     model = RutineType
     template_name = 'create.html'
     form_class = RutineTypeForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('list')

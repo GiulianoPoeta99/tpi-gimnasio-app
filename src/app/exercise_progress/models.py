@@ -1,6 +1,7 @@
 from django.db import models
+
 from app.exercise.models import Exercise
-from app.user.models import User
+from app.user.model import User
 
 
 class ExerciseProgress(models.Model):

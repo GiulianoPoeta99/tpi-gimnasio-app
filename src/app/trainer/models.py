@@ -1,5 +1,6 @@
 from django.db import models
-from app.user.models import User
+
+from app.user.model import User
 
 class Trainer(models.Model):
     user_id = models.ForeignKey(User , on_delete=models.RESTRICT)

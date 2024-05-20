@@ -9,4 +9,4 @@ class RutineUpdateView(UpdateView):
     model = Rutine
     template_name = 'update.html'
     form_class = RutineForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('list')
