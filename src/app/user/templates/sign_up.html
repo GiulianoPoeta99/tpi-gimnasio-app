@@ -1,12 +1,13 @@
 <!-- app/user/templates/user/user_form.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create User</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'user/css/login.css' %}">
+    <link rel="stylesheet" href="{% static '/css/login.css' %}">
     <style>
         body {
             background: url("{% static 'images/image1.png' %}") no-repeat center center fixed;
@@ -14,15 +15,16 @@
         }
     </style>
 </head>
+
 <body>
     <div class="login-box">
         <p>Create User</p>
         {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
         {% endif %}
         <form method="post">
             {% csrf_token %}
@@ -53,4 +55,5 @@
         <p>Already have an account? <a href="{% url 'user_login' %}" class="a2">Login</a></p>
     </div>
 </body>
+
 </html>
