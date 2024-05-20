@@ -1,7 +1,11 @@
 from django.db import models
 
+from app.rutine_type.manager import RutineTypeManager
+
 class RutineType(models.Model):
     name = models.CharField(max_length=100)
+
+    objects = RutineTypeManager()
 
     def __str__(self):
         return self.name
