@@ -1,7 +1,7 @@
 {
-  "name": "cambiar-nombre",
+  "name": "motion-path",
   "version": "0.0.3",
-  "description": "cambiar descripción",
+  "description": "Creación y gestion de rutinas",
   "scripts": {
     "prepare": "husky install",
     "release": "standard-version",
