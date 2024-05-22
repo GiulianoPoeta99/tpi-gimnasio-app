@@ -1,7 +1,7 @@
 name: ${CONTAINER_NAME:?container name is not defined...}-django
 services: 
   x-base: &x-base
-    container_name: ${CONTAINER_NAME:?container name is not defined...}-dev
+    container_name: ${CONTAINER_NAME:?container name is not defined...}-app
     build: 
       context: . 
       dockerfile: ./docker/dev.Dockerfile
