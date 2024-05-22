@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'app.muscle_group',
     'app.difficulty_level',
     'app.assign_rutine',
-    'app.pick_rutine',
     'app.rutine',
     'app.rutine_type',
     'app.progress',

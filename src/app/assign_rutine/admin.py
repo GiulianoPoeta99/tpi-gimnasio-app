@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import AssingRutine
+from app.assign_rutine.model import AssignRutine
 
 class AssignRutineAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('user', 'trainer', 'rutine')
+    list_filter = ('user', 'trainer', 'rutine')
+    raw_id_fields = ('user', 'trainer', 'rutine')
+
+admin.site.register(AssignRutine, AssignRutineAdmin)

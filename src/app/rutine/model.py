@@ -9,10 +9,11 @@ from app.exercise.models import Exercise
 
 class Rutine(models.Model):
     name = models.CharField(max_length=60)
-    user = models.ForeignKey(User, on_delete=models.RESTRICT)
+    user = models.ForeignKey(User, on_delete=models.RESTRICT, related_name='rutines')
     difficulty_level = models.OneToOneField(DifficultyLevel, on_delete=models.RESTRICT, null=True)
     rutine_type = models.ManyToManyField(RutineType)
     rutine_exercises = models.ManyToManyField(Exercise)
+    user_rutine = models.ManyToManyField(User, related_name='user_rutines')
 
     objects = RutineManager()
 
