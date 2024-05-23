@@ -19,3 +19,4 @@ class EmailBackend(BaseBackend):
             return UserModel.objects.get(pk=user_id)
         except UserModel.DoesNotExist:
             return None
+    
