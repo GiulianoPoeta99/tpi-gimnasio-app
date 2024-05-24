@@ -1,6 +1,6 @@
 from django.db import models
 
-from app.exercise.models import Exercise
+from app.exercise.model import Exercise
 from app.user.model import User
 
 

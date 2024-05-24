@@ -1,16 +1,16 @@
 from django import forms
 
 from app.difficulty_level.model import DifficultyLevel
-from app.rutine_type.model import RutineType
+from app.exercise_type.model import ExerciseType
 from app.user.model import User
-from app.rutine.model import Rutine
+from app.exercise.model import Exercise
 
-class RutineForm(forms.ModelForm):
+class ExerciseForm(forms.ModelForm):
     name = forms.CharField(
-        label='Nombre de la Rutina',
+        label='Nombre del ejercicio',
         widget=forms.TextInput(attrs={
-            'class': 'form-control',
-            'placeholder': 'Ingrese el nombre de la rutina',
+            'class':'form-control',
+            'placeholder': 'Ingrese el nombre del ejercicio',
             'maxlength': 60,
         })
     )
@@ -19,25 +19,25 @@ class RutineForm(forms.ModelForm):
         label='Usuario',
         widget=forms.Select(attrs={'class': 'form-control'})
     )
-    difficulty_level = forms.ModelChoiceField(
+    DifficultyLevel = forms.ModelChoiceField(
         queryset=DifficultyLevel.objects.all(),
         label='Nivel de Dificultad',
         required=False,
         widget=forms.Select(attrs={'class': 'form-control'})
     )
-    rutine_type = forms.ModelMultipleChoiceField(
-        queryset=RutineType.objects.all(),
-        label='Tipos de Rutina',
+    ExerciseType = forms.ModelMultipleChoiceField(
+        queryset=ExerciseType.objects.all(),
+        label='Tipos de Ejercicio'
         widget=forms.CheckboxSelectMultiple()
     )
 
     class Meta:
-        model = Rutine
-        fields = ['name', 'user', 'difficulty_level', 'rutine_type']
+        model = Exercise
+        fields = ['name', 'user', 'difficulty_level', 'exercise_type']
 
     def clean(self):
         cleaned_data = super().clean()
         difficulty_level = cleaned_data.get('difficulty_level')
         if difficulty_level is None:
-            raise forms.ValidationError('Debe especificar un nivel de dificultad para la rutina.')
+            raise forms.ValidationError('Debe especificar un nivel de dificultad')
         return cleaned_data

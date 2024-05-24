@@ -1,7 +1,7 @@
 from django.db import models
 
 from app.user.model import User
-from app.exercise.models import Exercise
+from app.exercise.model import Exercise
 
 class Progress(models.Model):
     id_user = models.OneToOneField(User,on_delete=models.RESTRICT)

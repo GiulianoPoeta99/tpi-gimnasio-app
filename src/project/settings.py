@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'app.exercise',
     'app.exercise_type',
     'app.muscle_exercise',
-    'app.muscle_group',
     'app.difficulty_level',
     'app.assign_rutine',
     'app.rutine',

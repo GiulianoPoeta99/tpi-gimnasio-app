@@ -2,10 +2,10 @@ from django.db import models
 from django.core.exceptions import ValidationError
 
 from app.user.model import User
-from app.difficulty_level.models import DifficultyLevel
+from app.difficulty_level.model import DifficultyLevel
 from app.rutine_type.model import RutineType
 from app.rutine.manager import RutineManager
-from app.exercise.models import Exercise
+from app.exercise.model import Exercise
 
 class Rutine(models.Model):
     name = models.CharField(max_length=60)
