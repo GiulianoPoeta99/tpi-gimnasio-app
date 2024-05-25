@@ -1,3 +1,4 @@
+#Este archivo se usa cuando se requiere un backend de auth personalizado , en nuestro caso validamos al usuario con el email y la contraseña
 from django.contrib.auth.backends import BaseBackend
 from django.contrib.auth import get_user_model
 

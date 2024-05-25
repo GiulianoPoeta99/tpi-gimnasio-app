@@ -8,7 +8,7 @@ class UserLoginView(LoginView):
     template_name = 'login.html'
 
     def get_success_url(self):
-        return reverse_lazy('construction')
+        return reverse_lazy('home')
 
     def form_invalid(self, form):
         messages.error(self.request, 'Invalid email or password.', extra_tags='error')

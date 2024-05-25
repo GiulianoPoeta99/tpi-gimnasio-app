@@ -2,17 +2,25 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from app.user.model import User  # Asegúrate de que la ruta al modelo sea correcta
+from app.user.model import User 
+
+
+#Crear un usuario en admin
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('email', 'first_name', 'last_name', 'password1', 'password2')
+        
+#Modificar un usuario en admin
 
 class CustomUserChangeForm(UserChangeForm):
+    
     class Meta:
         model = User
         fields = ('email', 'first_name', 'last_name', 'password', 'is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')
+        
+#Se define como se va a mostrar la creacion y cambios de usuario en admin
 
 class UserAdmin(BaseUserAdmin):
     add_form = CustomUserCreationForm
@@ -34,5 +42,6 @@ class UserAdmin(BaseUserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email',)
+    
 
 admin.site.register(User, UserAdmin)

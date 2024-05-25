@@ -2,54 +2,59 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
-    background: url('{% static 'images/fondohome3.png' %}') no-repeat center center / cover;
 }
 
-.navbar, .footer {
-    background-color: rgba(0, 0, 0, 0.3); /* Más transparencia */
-    padding: 5px 10px;
-    color: white;
-    font-size: 14px;
+body {
+    background: url("../images/fondohome3.png") no-repeat center center fixed;
+    background-size: cover;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
-.nav-links, .social-links {
-    display: flex;
-    justify-content: center;
+.navbar-nav {
+    margin: 0 auto; /* Centra los enlaces de la navbar */
 }
 
-.navbar a, .footer a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    margin-right: 8px;
+.navbar-nav .nav-item {
+    margin: 0 15px; /* Ajusta el margen entre los enlaces */
 }
 
-.navbar a:hover, .footer a:hover {
-    color: #ff4500;
+.navbar-nav .nav-link, .social-links a {
+    color: white !important;
+    transition: color 0.3s;
+    margin-left: 30px;
+    padding-right: 42px;
+}
+
+.navbar-nav .nav-link:hover, .social-links a:hover {
+    color: #ff4500 !important;
+}
+
+.social-links a {
+    color: white; /* Añade espacio entre los íconos de redes sociales */
 }
 
 .navbar-brand img {
-    width: 180px;
-    height: 44px;
-    margin-right: 5px;
+    transition: filter 0.3s; /* Transición suave para el filtro de color */
 }
 
-.icon {
-    padding: 0;
-    font-size: 16px;
-    margin-left: 5px;
+.navbar-brand:hover img {
+    filter: invert(41%) sepia(81%) saturate(2274%) hue-rotate(340deg) brightness(94%) contrast(101%);
+    /* Aplica un filtro para cambiar el color a naranja */
+}
+
+.btn-secondary:hover {
+    background-color: #ff4500;
+    color: white;
 }
 
 .hero {
     position: relative;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +62,7 @@ html, body {
     text-align: center;
 }
 
-.overlay {
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -68,43 +73,10 @@ html, body {
 }
 
 .hero-content {
-    max-width: 90%;
     position: relative;
     z-index: 2;
 }
 
-h1, h2, p {
-    margin-bottom: 20px;
-}
 
-.button {
-    padding: 15px 30px;
-    font-size: 18px;
-    text-decoration: none;
-    color: white;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
 
-.button.primary {
-    background-color: #005f88;
-}
 
-.button.primary:hover {
-    background-color: #0082ca;
-}
-
-.button.secondary {
-    background-color: transparent;
-    border: 2px solid #ff4500;
-}
-
-.button.secondary:hover {
-    background-color: #ff4500;
-    color: #005f88;
-}
-
-.footer {
-    text-align: center;
-    padding: 20px;
-}

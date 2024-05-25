@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from app.user.model import User
-from app.user.forms.singup_form import SignUpForm
+from app.user.form import SignUpForm
 
 class SignUpView(CreateView):
     model = User
@@ -12,7 +12,7 @@ class SignUpView(CreateView):
     template_name = 'sign_up.html'
     
     def get_success_url(self):
-        return reverse_lazy('construction')
+        return reverse_lazy('home')
     
     def form_valid(self, form):
         response = super().form_valid(form)
