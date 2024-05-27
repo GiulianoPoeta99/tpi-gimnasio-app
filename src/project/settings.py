@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app.user',
     'app.trainer',
-    'app.user_trainer',
     'app.exercise',
     'app.exercise_type',
     'app.muscle_exercise',
