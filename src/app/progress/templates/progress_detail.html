@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Detail</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_crud.css' %}">
+</head>
+<body class="bg-dark">
+    <div class="container mt-5">
+        <h1>Progress Detail</h1>
+        <p><strong>User:</strong> {{ progress.user.email }}</p>
+        <p><strong>Exercise:</strong> {{ progress.exercise.name }}</p>
+        <p><strong>Weight:</strong> {{ progress.weight }}</p>
+        <p><strong>Repetitions:</strong> {{ progress.repetitions }}</p>
+        <a href="{% url 'progress_list' %}" class="btn btn-secondary">Back to List</a>
+    </div>
+</body>
+</html>
