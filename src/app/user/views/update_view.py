@@ -5,6 +5,6 @@ from app.user.model import User
 
 class UserUpdateView(UpdateView):
     model = User
-    fields = ['username', 'email', 'profile_profile']
+    fields = ['first_name','last_name','email']
     template_name = 'update.html'
-    success_url = reverse_lazy('list')
+    success_url = reverse_lazy('user_list')
