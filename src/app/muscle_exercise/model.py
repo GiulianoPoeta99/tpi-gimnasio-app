@@ -1,6 +1,6 @@
 from django.db import models
 
-from .manager import MuscleExerciseManager
+from app.muscle_exercise.manager import MuscleExerciseManager
 
 class MuscleExercise (models.Model):
     name = models.CharField(max_length=100)

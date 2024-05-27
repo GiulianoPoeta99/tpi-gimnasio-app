@@ -1,9 +1,9 @@
 from django.views.generic import DetailView
 
-from app.rutine.model import Rutine
+from app.rutine_type.model import RutineType
 
 
 class RutineTypeDetailView(DetailView):
-    model = Rutine
+    model = RutineType
     template_name = 'detail.html'
-    context_object_name = 'rutine'
+    context_object_name = 'rutine_type'

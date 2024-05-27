@@ -1,11 +1,12 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
-from .manager import ExerciseTypeManager
+from app.exercise_type.manager import ExerciseTypeManager
 
 class ExerciseType(models.Model):
     name = models.CharField(max_length=100)
 
-objects = ExerciseTypeManager
+objects = ExerciseTypeManager()
 
 def __str__ (self):
     return self.name
