@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_crud.css' %}">
+</head>
+<body class="bg-dark">
+    <div class="container mt-5">
+        <h1>Trainer List</h1>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Email</th>
+                    <th scope="col">Verified</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trainer in trainers %}
+                <tr>
+                    <td>{{ trainer.user.email }}</td>
+                    <td>{{ trainer.is_verify }}</td>
+                    <td>{{ trainer.rate }}</td>
+                    <td>
+                        <a href="{% url 'trainer_detail' trainer.pk %}" class="btn btn-info btn-sm me-2">Details</a>
+                        <a href="{% url 'trainer_update' trainer.pk %}" class="btn btn-warning btn-sm me-2">Edit</a>
+                        <a href="{% url 'trainer_delete' trainer.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'trainer_create' %}" class="btn btn-primary">Add Trainer</a>
+    </div>
+</body>
+</html>

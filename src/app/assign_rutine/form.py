@@ -1,7 +1,7 @@
 from django import forms
 from app.assign_rutine.model import AssignRutine
 from app.user.model import User
-from app.trainer.models import Trainer
+from app.trainer.model import Trainer
 from app.rutine.model import Rutine
 
 class AssignRutineForm(forms.ModelForm):

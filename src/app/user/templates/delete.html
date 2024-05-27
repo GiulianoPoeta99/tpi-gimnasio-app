@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_crud.css' %}">
+    <title>Delete User</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Delete User</h1>
+        <form method="post">
+            {% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -9,6 +9,8 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email' #Identifica que el email sera el campo unico para identificar a los usuarios
     REQUIRED_FIELDS = ['first_name', 'last_name'] #Agrega campos obligatorios para crear un superusuario (ademas del email y pass)
+    
+    trainers = models.ManyToManyField('self', symmetrical=False, related_name='user_trainer') ## relacion n a n entre usuarios y entrenadores
 
     objects = CustomUserManager() # Definde el administrador del modelo
 
