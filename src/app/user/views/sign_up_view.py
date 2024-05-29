@@ -12,7 +12,7 @@ class SignUpView(CreateView):
     template_name = 'sign_up.html'
     
     def get_success_url(self):
-        return reverse_lazy('home')
+        return reverse_lazy('dashboard')
     
     def form_valid(self, form):
         response = super().form_valid(form)
