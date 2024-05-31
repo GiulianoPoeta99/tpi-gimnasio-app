@@ -1,0 +1,32 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+<div class="container-fluid py-4">
+  <div class="row">
+    {% for trainer in trainers %}
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+      <div class="card">
+        <div class="card-header p-3 pt-2">
+          <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+            <i class="material-icons opacity-10">fitness_center</i>  <!-- Icono relevante para un entrenador -->
+          </div>
+          <div class="text-end pt-1">
+            <h5 class="mb-0 text-capitalize">{{ trainer.user.get_full_name }}</h5>  <!-- Mostrar solo el nombre -->
+          </div>
+        </div>
+        <hr class="dark horizontal my-0">
+        <div class="card-footer p-3">
+          <p class="mb-0">Verified: 
+            <span class="{% if trainer.is_verify %}text-success{% else %}text-danger{% endif %} text-sm font-weight-bolder">
+              {% if trainer.is_verify %}Yes{% else %}No{% endif %}
+            </span>
+          </p>
+          <p class="mb-0">Rating: <span class="text-warning text-sm font-weight-bolder">{{ trainer.rate }}/5</span></p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+

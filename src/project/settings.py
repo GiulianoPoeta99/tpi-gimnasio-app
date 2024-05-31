@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'app.rutine_type',
     'app.progress',
     'app.exercise_progress',
+    'app.dashboard',
 ]
 
 MIDDLEWARE = [
