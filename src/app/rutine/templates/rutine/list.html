@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <h1>{{ title }}</h1>
+
+    {% if rutines %}
+    <ul>
+        {% for rutine in rutines %}
+        <li>
+            <a href="{% url 'rutine-detail' rutine.id %}">{{ rutine.name }}</a>
+            <!-- Agrega más campos relevantes de la rutina si es necesario -->
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Paginación -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; primera</a>
+            <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">última &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    {% else %}
+    <p>No hay rutinas disponibles.</p>
+    {% endif %}
+</body>
+
+</html>
