@@ -7,6 +7,15 @@ from app.rutine_type.model import RutineType
 
 class RutineTypeUpdateView(UpdateView):
     model = RutineType
-    template_name = 'update.html'
+    template_name = 'rutine_type/update.html'
     form_class = RutineTypeForm
-    success_url = reverse_lazy('list')
+    
+    # override
+    def get_success_url(self):
+        return reverse_lazy('detail', kwargs={'pk': self.object.pk})
+
+    # override
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Actualizar tipo de rutina'
+        return context

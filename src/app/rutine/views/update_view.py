@@ -6,7 +6,7 @@ from app.rutine.model import Rutine
 
 class RutineUpdateView(UpdateView):
     model = Rutine
-    template_name = 'update.html'
+    template_name = 'rutine/update.html'
     form_class = RutineForm
     
     # override

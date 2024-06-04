@@ -4,7 +4,7 @@ from app.rutine.model import Rutine
 
 class RutineDetailView(DetailView):
     model = Rutine
-    template_name = 'detail.html'
+    template_name = 'rutine/detail.html'
     context_object_name = 'rutine'
 
     # override

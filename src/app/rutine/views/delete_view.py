@@ -6,7 +6,7 @@ from app.rutine.model import Rutine
 
 class RutineDeleteView(DeleteView):
     model = Rutine
-    template_name = 'delete.html'
+    template_name = 'rutine/delete.html'
     
     # override
     def get_success_url(self):

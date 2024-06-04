@@ -6,6 +6,15 @@ from app.assign_rutine.model import AssignRutine
 
 class RutineUpdateView(UpdateView):
     model = AssignRutine
-    template_name = 'update.html'
-    form_class = AssignRutine
-    success_url = reverse_lazy('list')
+    template_name = 'assign_rutine/update.html'
+    form_class = AssignRutineForm
+
+    # override
+    def get_success_url(self):
+        return reverse_lazy('detail', kwargs={'pk': self.object.pk})
+
+    # override
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Actualizar asignación de rutina'
+        return context
