@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app.home',
     'app.user',
     'app.trainer',
     'app.exercise',
@@ -55,7 +56,6 @@ INSTALLED_APPS = [
     'app.rutine_type',
     'app.progress',
     'app.exercise_progress',
-    'app.dashboard',
 ]
 
 MIDDLEWARE = [
