@@ -5,13 +5,11 @@ from app.rutine.model import Rutine
 class RutineListView(ListView):
     model = Rutine
     template_name = 'rutine/list.html'
-    paginate_by = 20
     ordering = ['id']
 
     # override
     def get_queryset(self):
         return Rutine.objects.values('name', 'rutine_type__name', 'difficulty_level__name', 'user__first_name').order_by(*self.ordering)
-
 
     # override
     def get_context_data(self, **kwargs):

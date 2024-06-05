@@ -2,6 +2,15 @@
 
 {% block content %}
 
-    {% include 'components/datatable.html' %}
-
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">
+                Tabla {{ title }}
+            </h5>
+        </div>
+        <div class="card-body">
+            {% include 'components/datatable.html' %}
+        </div>
+    </div>
+    
 {% endblock content %}
