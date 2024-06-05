@@ -1,6 +1,6 @@
 {
   "name": "motion-path",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Creación y gestion de rutinas",
   "scripts": {
     "prepare": "husky install",
