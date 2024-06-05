@@ -12,5 +12,11 @@ class RutineListView(ListView):
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Listado de rutinas'
+        context['title'] = 'Rutinas'
+        context['description'] = 'Listado de rutinas'
+        context['breadcrumb_items'] = [
+            {'name': 'Dashboard', 'url': 'index.html'},
+            {'name': 'Rutinas'}
+        ]
+
         return context
