@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html>
+{% extends "base/layout.html" %}
 
-<head>
-    <title>{{ title }}</title>
-</head>
+{% block content %}
 
-<body>
-    <h1>{{ title }}</h1>
-    <p>¿Estás seguro de que quieres eliminar la rutina "{{ object.name }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Sí, eliminar</button>
-        <a href="{% url 'list' %}">Cancelar</a>
-    </form>
-</body>
-
-</html>
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">
+                {{ title }}
+            </h4>
+        </div>
+        <div class="card-body">
+            <h5>¿Estás seguro que deseas eliminar la rutina <strong>{{ object.name }}</strong>?</h5>
+            <form method="post">
+                {% csrf_token %}
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-danger me-1 mb-1">Confirmar</button>
+                    <a href="{% url 'rutine_detail' pk=object.pk %}" class="btn btn-secondary me-1 mb-1">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+{% endblock content %}

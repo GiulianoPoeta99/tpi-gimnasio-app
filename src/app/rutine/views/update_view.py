@@ -11,10 +11,21 @@ class RutineUpdateView(UpdateView):
     
     # override
     def get_success_url(self):
-        return reverse_lazy('detail', kwargs={'pk': self.object.pk})
+        return reverse_lazy('rutine_detail', kwargs={'pk': self.object.pk})
 
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Actualizar rutina'
+        if self.object:
+            context['is_update'] = True
+        else:
+            context['is_update'] = False
+
+        context['title'] = 'Rutinas'
+        context['description'] = 'Actualizar una rutina existente.'
+        context['breadcrumb_items'] = [
+            {'name': 'Inicio', 'url': 'dashboard'},
+            {'name': 'Rutinas', 'url': 'rutine_list'},
+            {'name': 'Actualizar'}
+        ]
         return context

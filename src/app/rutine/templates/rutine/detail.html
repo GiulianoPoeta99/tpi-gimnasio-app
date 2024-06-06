@@ -1,18 +1,50 @@
-<!DOCTYPE html>
-<html>
+{% extends "base/layout.html" %}
 
-<head>
-    <title>{{ title }}</title>
-</head>
+{% block content %}
 
-<body>
-    <h1>{{ titulo }}</h1>
-    <h2>{{ rutine.name }}</h2>
-    <p>{{ rutine.description }}</p>
-    <!-- Agrega más campos relevantes de la rutina si es necesario -->
-    <a href="{% url 'list' %}">Volver al listado</a>
-    <a href="{% url 'update' rutine.id %}">Editar</a>
-    <a href="{% url 'delete' rutine.id %}">Eliminar</a>
-</body>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">
+                {{ title }}
+            </h3>
+        </div>
+        <div class="card-body">
 
-</html>
+            <div class="table-responsive">
+                <table class="table table-lg">
+                    <tbody>
+                        <tr>
+                            <td><strong>Nombre:</strong></td>
+                            <td>{{ object.name }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Creador:</strong></td>
+                            <td>{{ object.user }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nivel de Dificultad:</strong></td>
+                            <td>{{ object.difficulty_level }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tipo de Rutina:</strong> </td>
+                            <td>
+                                {% for rutine_type in object.rutine_type.all %}
+                                    {{ rutine_type.name }}{% if not forloop.last %}<br><hr>{% endif %}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="col-12 d-flex justify-content-end">
+                <a href="{% url 'rutine_list' %}" class="btn btn-light-secondary me-1 mb-1">Continuar</a>
+                <a href="{% url 'rutine_create' %}" class="btn btn-success me-1 mb-1">Crear nuevamente</a>
+                <a href="{% url 'rutine_update' pk=object.id %}" class="btn btn-primary me-1 mb-1">Actualizar</a>
+                <a href="{% url 'rutine_delete' pk=object.id %}" class="btn btn-danger me-1 mb-1">Eliminar</a>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

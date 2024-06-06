@@ -4,11 +4,14 @@
 
     <div class="card">
         <div class="card-header">
-            <h5 class="card-title">
+            <h4 class="card-title">
                 Tabla {{ title }}
-            </h5>
+            </h4>
         </div>
         <div class="card-body">
+            {% comment %} hacer redirrecion a la vista RutineCreateVIew {% endcomment %}
+            <a href="{% url 'rutine_create' %}" class="btn btn-success">Crear rutina</a>
+            <hr>
             {% include 'components/datatable.html' %}
         </div>
     </div>

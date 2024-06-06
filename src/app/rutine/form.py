@@ -9,26 +9,39 @@ class RutineForm(forms.ModelForm):
     name = forms.CharField(
         label='Nombre de la Rutina',
         widget=forms.TextInput(attrs={
-            'class': 'form-control',
+            'class': 'form-control form-control-lg',
             'placeholder': 'Ingrese el nombre de la rutina',
-            'maxlength': 60,
+            'maxlength': 60
         })
     )
     user = forms.ModelChoiceField(
         queryset=User.objects.all(),
         label='Usuario',
-        widget=forms.Select(attrs={'class': 'form-control'})
+        required=True,
+        widget=forms.Select(attrs={
+            'class': 'form-select form-control-lg',
+            'id': 'user'
+        })
     )
+    
     difficulty_level = forms.ModelChoiceField(
         queryset=DifficultyLevel.objects.all(),
         label='Nivel de Dificultad',
-        required=False,
-        widget=forms.Select(attrs={'class': 'form-control'})
+        required=True,
+        widget=forms.Select(attrs={
+            'class': 'form-select form-control-lg',
+            'id': 'difficulty_level'
+        })
     )
+    
     rutine_type = forms.ModelMultipleChoiceField(
         queryset=RutineType.objects.all(),
         label='Tipos de Rutina',
-        widget=forms.CheckboxSelectMultiple()
+        required=True,  # Aquí establecemos el campo como requerido
+        widget=forms.SelectMultiple(attrs={
+            'class': 'choices form-select form-control-lg multiple-remove',
+            'id': 'rutine_type'
+        })
     )
 
     class Meta:

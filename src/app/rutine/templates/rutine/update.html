@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html>
+{% extends "base/layout.html" %}
 
-<head>
-    <title>{{ title }}</title>
-</head>
+{% block content %}
 
-<body>
-    <h1>{{ title }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
-        <a href="{% url 'list' %}">Cancelar</a>
-    </form>
-</body>
-
-</html>
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">
+                Actualizar rutina
+            </h4>
+        </div>
+        <div class="card-body">
+            {% include "rutine/_form.html" %}
+        </div>
+    </div>
+    
+{% endblock content %}

@@ -18,6 +18,10 @@
             <header>
                 <nav class="navbar navbar-expand navbar-light navbar-top">
                     <div class="container-fluid">
+                        <a href="#" class="burger-btn d-block">
+                            <i class="bi bi-justify fs-3"></i>
+                        </a>
+
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -119,7 +123,7 @@
                                         <ol class="breadcrumb">
                                             {% for item in breadcrumb_items %}
                                                 {% if item.url %}
-                                                    <li class="breadcrumb-item"><a href="{{ item.url }}">{{ item.name }}</a></li>
+                                                    <li class="breadcrumb-item"><a href="{% url item.url %}">{{ item.name }}</a></li>
                                                 {% else %}
                                                     <li class="breadcrumb-item active" aria-current="page">{{ item.name }}</li>
                                                 {% endif %}
@@ -149,5 +153,6 @@
     <script src="{% static 'assets/static/js/components/dark.js' %}"></script>
     <script src="{% static 'assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
     <script src="{% static 'assets/compiled/js/app.js' %}"></script>
+    {% block script %}{% endblock script %}
 </body>
 </html>

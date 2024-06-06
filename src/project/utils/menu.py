@@ -15,7 +15,7 @@ def sidebar(request):
                 "title": "Dashboard",
                 "url": "index.html",
                 "icon": "grid-fill",
-                "active": True
+                # "active": True
             },
             {
                 "title": "Components",
