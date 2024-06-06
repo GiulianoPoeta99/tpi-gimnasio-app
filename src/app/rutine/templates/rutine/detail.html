@@ -11,6 +11,7 @@
         <div class="card-body">
 
             <div class="table-responsive">
+                <p>{{object}}</p>
                 <table class="table table-lg">
                     <tbody>
                         <tr>
@@ -30,6 +31,22 @@
                             <td>
                                 {% for rutine_type in object.rutine_type.all %}
                                     {{ rutine_type.name }}{% if not forloop.last %}<br><hr>{% endif %}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ejercicios:</strong> </td>
+                            <td>
+                                {% for exercise in object.rutine_exercises.all %}
+                                    {{ exercise.name }}{% if not forloop.last %}<br><hr>{% endif %}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Usuarios que la eligieron:</strong> </td>
+                            <td>
+                                {% for user in object.user_rutine.all %}
+                                    {{ user.email }}{% if not forloop.last %}<br><hr>{% endif %}
                                 {% endfor %}
                             </td>
                         </tr>
