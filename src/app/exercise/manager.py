@@ -31,37 +31,37 @@ class ExerciseManager(models.Manager):
             logger.error(f"Error inesperado al crear ejercicio: {str(e)}")
             raise Exception(str(e))
         
-        def update(self, exercise_id, name = None, user = None, difficulty_level = None, exercise_type = None):
-            exercise =  self.get_by_id(exercise_id)
+    def update(self, exercise_id, name = None, user = None, difficulty_level = None, exercise_type = None):
+        exercise =  self.get_by_id(exercise_id)
 
-            try:
-                with transaction.atomic():
-                    if name:
-                        exercise.name = name
-                    if user:
-                        exercise.user = user
-                    if difficulty_level:
-                        exercise.difficulty_level = difficulty_level
-                    if exercise_type is not None:
-                        exercise.exercise_type.set(exercise_type)
+        try:
+            with transaction.atomic():
+                if name:
+                    exercise.name = name
+                if user:
+                    exercise.user = user
+                if difficulty_level:
+                    exercise.difficulty_level = difficulty_level
+                if exercise_type is not None:
+                    exercise.exercise_type.set(exercise_type)
 
-                    exercise.full_clean()
-                    exercise.save()
-                    return exercise
-            except ValidationError as e:
-                logger.error(f"Error de validación al actualizar el ejercicio: {e.message_dict}")
-                raise ValidationError(e.message_dict)
-            except Exception as e:
-                logger.error(f"Error inesperado al actualizar ejercicio: {str(e)}")
-                raise Exception(str(e))
-            
-        def delete(self, exercise_id):
-            exercise = self.get_by_id(exercise_id)
+                exercise.full_clean()
+                exercise.save()
+                return exercise
+        except ValidationError as e:
+            logger.error(f"Error de validación al actualizar el ejercicio: {e.message_dict}")
+            raise ValidationError(e.message_dict)
+        except Exception as e:
+            logger.error(f"Error inesperado al actualizar ejercicio: {str(e)}")
+            raise Exception(str(e))
+        
+    def delete(self, exercise_id):
+        exercise = self.get_by_id(exercise_id)
 
-            try:
-                with transaction.atomic():
-                    exercise.delete()
-                    return True
-            except Exception as e:
-                logger.error(f"Error al eliminar el ejercicio con ID {exercise_id}: {str(e)}")
-                raise Exception(str(e))
+        try:
+            with transaction.atomic():
+                exercise.delete()
+                return True
+        except Exception as e:
+            logger.error(f"Error al eliminar el ejercicio con ID {exercise_id}: {str(e)}")
+            raise Exception(str(e))

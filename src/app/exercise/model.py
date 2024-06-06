@@ -8,24 +8,24 @@ from app.exercise.manager import ExerciseManager
 
 class Exercise (models.Model):
     name = models.CharField(max_length=100)
-    exercise_type = models.OneToOneField(ExerciseType, on_delete=models.RESTRICT, null=True)
-    difficulty_level = models.OneToOneField(DifficultyLevel, on_delete=models.RESTRICT, null=True)
-    user = models.OneToOneField(User, on_delete=models.RESTRICT, related_name='exercises', null=True)
+    exercise_type = models.ForeignKey(ExerciseType, on_delete=models.RESTRICT, null=True)
+    difficulty_level = models.ForeignKey(DifficultyLevel, on_delete=models.RESTRICT, null=True)
+    user = models.ForeignKey(User, on_delete=models.RESTRICT, related_name='exercises', null=True)
 
-objects = ExerciseManager()
+    objects = ExerciseManager()
 
-def __str__ (self):
-    return self.name
+    def __str__ (self):
+        return self.name
 
-def clean(self):
-    if self.difficulty_level is None:
-         raise ValidationError("Debe especificar un nivel de dificultad para el ejercicio.")
-    if self.exercise_type is None:
-        raise ValidationError("Debe especificar un tipo de ejercicio")
-    if self.user is None:
-        raise ValidationError("Debe especificar un usuario")
-    
-class Meta:
-    verbose_name = "Ejercicio"
-    verbose_name_plural = "Ejercicios"
-    ordering = ['name']
+    def clean(self):
+        if self.difficulty_level is None:
+            raise ValidationError("Debe especificar un nivel de dificultad para el ejercicio.")
+        if self.exercise_type is None:
+            raise ValidationError("Debe especificar un tipo de ejercicio")
+        if self.user is None:
+            raise ValidationError("Debe especificar un usuario")
+        
+    class Meta:
+        verbose_name = "Ejercicio"
+        verbose_name_plural = "Ejercicios"
+        ordering = ['name']
