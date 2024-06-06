@@ -16,6 +16,11 @@ def sidebar(request):
                 "url": "rutine_list",
                 "icon": "calendar4-week",
             },
+            {
+                "title": "Tipos de rutinas",
+                "url": "rutine_type_list",
+                "icon": "gear-fill",
+            },
         ],
     }    
     return {'sidebar_menu': menu}
