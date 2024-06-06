@@ -2,9 +2,7 @@
 {% load static %}
 
 {% block form %}
-{% comment %} 
-mostrar errores
-{% endcomment %}
+
 <form class="form form-vertical" method="post">
     {% csrf_token %}
     <div class="form-body">
@@ -50,7 +48,6 @@ mostrar errores
                     {{ form.user_rutine }}
                 </div>
             </div>
-
 
             <br>
 

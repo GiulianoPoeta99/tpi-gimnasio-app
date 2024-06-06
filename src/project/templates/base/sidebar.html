@@ -4,7 +4,7 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="index.html"><img src="{% static '/assets/compiled/svg/logo.svg' %}" alt="Logo" srcset=""></a>
+                    <a href="{% url 'dashboard' %}"><img src="{% static '/assets/compiled/svg/logo.svg' %}" alt="Logo" srcset=""></a>
                 </div>
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
@@ -39,7 +39,14 @@
                         <li class="sidebar-title">{{ item.title }}</li>
                     {% else %}
                         <li class="sidebar-item {% if item.active %}active{% endif %} {% if item.sub_items %}has-sub{% endif %}">
-                            <a href="{% if item.url %}{{ item.url }}{% else %}#{% endif %}" class='sidebar-link'>
+                            <a 
+                                {% if item.url %}
+                                    href="{% url item.url %}" 
+                                {% else %}
+                                    href="#" 
+                                {% endif %}
+                                class='sidebar-link'
+                            >
                                 <i class="bi bi-{{ item.icon }}"></i>
                                 <span>{{ item.title }}</span>
                             </a>
@@ -47,12 +54,30 @@
                                 <ul class="submenu">
                                     {% for sub_item in item.sub_items %}
                                         <li class="submenu-item {% if sub_item.sub_items %}has-sub{% endif %}">
-                                            <a href="{% if sub_item.url %}{{ sub_item.url }}{% else %}#{% endif %}" class="submenu-link">{{ sub_item.title }}</a>
+                                            <a 
+                                                {% if item.url %}
+                                                    href="{% url sub_item.url %}" 
+                                                {% else %}
+                                                    href="#" 
+                                                {% endif %}
+                                                class="submenu-link"
+                                            >
+                                                {{ sub_item.title }}
+                                            </a>
                                             {% if sub_item.sub_items %}
                                                 <ul class="submenu submenu-level-2">
                                                     {% for sub_sub_item in sub_item.sub_items %}
                                                         <li class="submenu-item">
-                                                            <a href="{{ sub_sub_item.url }}" class="submenu-link">{{ sub_sub_item.title }}</a>
+                                                            <a 
+                                                                {% if item.url %}
+                                                                    href="{% url sub_sub_item.url %}" 
+                                                                {% else %}
+                                                                    href="#" 
+                                                                {% endif %}
+                                                                class="submenu-link"
+                                                            >
+                                                                {{ sub_sub_item.title }}
+                                                            </a>
                                                         </li>
                                                     {% endfor %}
                                                 </ul>
