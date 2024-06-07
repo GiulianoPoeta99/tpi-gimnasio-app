@@ -10,7 +10,6 @@ class RutineTypeCreateView(CreateView):
     template_name = 'rutine_type/create.html'
     form_class = RutineTypeForm
     
-
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -19,7 +18,7 @@ class RutineTypeCreateView(CreateView):
         else:
             context['is_update'] = False
 
-        context['title'] = 'Tipos de Rutinas'
+        context['title'] = 'Tipos de Rutinas'   
         context['description'] = 'Crear un nuevo tipo de rutina.'
         context['breadcrumb_items'] = [
             {'name': 'Inicio', 'url': 'dashboard'},
@@ -30,4 +29,4 @@ class RutineTypeCreateView(CreateView):
 
     # override
     def get_success_url(self):
-        return reverse_lazy('detail', kwargs={'pk': self.object.pk})
+        return reverse_lazy('rutine_type_detail', kwargs={'pk': self.object.pk})

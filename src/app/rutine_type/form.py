@@ -6,7 +6,7 @@ class RutineTypeForm(forms.ModelForm):
         label='Nombre de la Rutina',
         widget=forms.TextInput(attrs={
             'class': 'form-control form-control-lg',
-            'placeholder': 'Ingrese el nombre de la rutina',
+            'placeholder': 'Ingrese el nombre del tipo de rutina',
             'maxlength': 100
         })
     )
