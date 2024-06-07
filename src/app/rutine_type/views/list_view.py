@@ -20,16 +20,10 @@ class RutineTypeListView(ListView):
             {'name': 'Inicio', 'url': 'dashboard'},
             {'name': 'Tipos de Rutinas'}
         ]
-        context['field_labels'] = {
-            'id': 'N° de referencia',
-            'name': RutineType._meta.get_field('name').verbose_name,
-        }
+
         queryset = self.get_queryset()
-        if queryset.exists():
-            context['headers'] = [context['field_labels'][field] for field in queryset[0].keys()]
-        else:
-            context['headers'] = []
-        context['rows'] = list(self.get_queryset().values_list('id', 'name'))
+        context['headers'] = ['N° de referencia', RutineType._meta.get_field('name').verbose_name]
+        context['rows'] = list(queryset.values_list('id', 'name'))
         context['table_actions'] = {
             'active': True,
             'buttons': [
