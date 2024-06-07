@@ -9,7 +9,7 @@ class RutineTypeListView(ListView):
 
     # override
     def get_queryset(self):
-        return RutineType.objects.values('id', 'name').order_by(*self.ordering)
+        return RutineType.objects.get_default_table().order_by(*self.ordering)
 
     # override
     def get_context_data(self, **kwargs):

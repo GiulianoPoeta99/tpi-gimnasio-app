@@ -1,8 +1,5 @@
-import logging
-from django.db import models, transaction
-from django.core.exceptions import ValidationError, ObjectDoesNotExist
-
-logger = logging.getLogger(__name__)
+from django.db import models
 
 class RutineTypeManager(models.Manager):
-    pass
+    def get_default_table(self):
+        return self.get_queryset().values('id', 'name')
