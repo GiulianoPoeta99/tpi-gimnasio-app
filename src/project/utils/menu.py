@@ -12,6 +12,15 @@ def sidebar(request):
                 "title": "Aplicación"
             },
             {
+                "title": "Inicio",
+                "url": "dashboard",
+                "icon": "house-fill",
+            },
+            {
+                "separator": True,
+                "title": "Rutinas"
+            },
+            {
                 "title": "Rutinas",
                 "url": "rutine_list",
                 "icon": "calendar4-week",
