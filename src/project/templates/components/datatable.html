@@ -36,7 +36,18 @@
                     </td>
                 {% endif %}
                 {% for cell in row %}
-                    <td>{{ cell }}</td>
+                    <td>
+                        {% if cell.0|length > 1 %}
+                            {% for item in cell %}
+                                {{ item }}
+                                {% if not forloop.last %}
+                                    <hr>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            {{ cell }}
+                        {% endif %}
+                    </td>
                 {% endfor %}
             </tr>
         {% endfor %}

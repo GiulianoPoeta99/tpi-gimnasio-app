@@ -7,10 +7,7 @@ from app.rutine_type.model import RutineType
 class RutineTypeDeleteView(DeleteView):
     model = RutineType
     template_name = 'rutine_type/delete.html'
-
-    # override
-    def get_success_url(self):
-        return reverse_lazy('detail', kwargs={'pk': self.object.pk})
+    success_url = reverse_lazy('rutine_type_list')
     
     # override
     def get_context_data(self, **kwargs):

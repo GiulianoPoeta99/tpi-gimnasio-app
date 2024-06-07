@@ -1,5 +1,4 @@
 from django.views.generic import ListView
-
 from app.rutine.model import Rutine
 
 class RutineListView(ListView):
@@ -9,7 +8,7 @@ class RutineListView(ListView):
 
     # override
     def get_queryset(self):
-        return Rutine.objects.values('id', 'name', 'rutine_type__name', 'difficulty_level__name', 'user__first_name').order_by(*self.ordering)
+        return Rutine.objects.get_default_table()
 
     # override
     def get_context_data(self, **kwargs):
@@ -20,19 +19,16 @@ class RutineListView(ListView):
             {'name': 'Inicio', 'url': 'dashboard'},
             {'name': 'Rutinas'}
         ]
-        context['field_labels'] = {
-            'id': 'N° de referencia',
-            'name': Rutine._meta.get_field('name').verbose_name,
-            'rutine_type__name': Rutine._meta.get_field('rutine_type').verbose_name,
-            'difficulty_level__name': Rutine._meta.get_field('difficulty_level').verbose_name,
-            'user__first_name': Rutine._meta.get_field('user').verbose_name,
-        }
+
         queryset = self.get_queryset()
-        if queryset.exists():
-            context['headers'] = [context['field_labels'][field] for field in queryset[0].keys()]
-        else:
-            context['headers'] = []
-        context['rows'] = list(self.get_queryset().values_list('id', 'name', 'rutine_type__name', 'difficulty_level__name', 'user__first_name'))
+        context['headers'] = ['N° de Referencia', "Nombre", 'Nivel de Dificultad', "Tipos", 'Creador',]
+        context['rows'] = queryset.values_list(
+            'id',
+            'name',
+            'difficulty_level_name',
+            'rutine_types',
+            'full_name'
+        )
         context['table_actions'] = {
             'active': True,
             'buttons': [
