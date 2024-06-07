@@ -3,7 +3,7 @@ from django.db import models
 from app.rutine_type.manager import RutineTypeManager
 
 class RutineType(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, verbose_name="Nombre")
 
     objects = RutineTypeManager()
 

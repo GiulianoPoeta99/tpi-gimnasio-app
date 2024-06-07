@@ -15,7 +15,7 @@ class RutineListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Rutinas'
-        context['description'] = 'Listado de rutinas.'
+        context['description'] = 'Listado de todas las rutinas.'
         context['breadcrumb_items'] = [
             {'name': 'Inicio', 'url': 'dashboard'},
             {'name': 'Rutinas'}
@@ -37,9 +37,9 @@ class RutineListView(ListView):
             'active': True,
             'buttons': [
                 {
-                    'color': 'info',
-                    'url': 'rutine_detail',
-                    'icon': 'eye',
+                    'color': 'danger',
+                    'url': 'rutine_delete',
+                    'icon': 'trash',
                     'pk': True
                 },
                 {
@@ -49,9 +49,9 @@ class RutineListView(ListView):
                     'pk': True
                 },
                 {
-                    'color': 'danger',
-                    'url': 'rutine_delete',
-                    'icon': 'trash',
+                    'color': 'info',
+                    'url': 'rutine_detail',
+                    'icon': 'eye',
                     'pk': True
                 },
             ],

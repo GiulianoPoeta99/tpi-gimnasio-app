@@ -17,5 +17,16 @@ class RutineTypeUpdateView(UpdateView):
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Actualizar tipo de rutina'
+        if self.object:
+            context['is_update'] = True
+        else:
+            context['is_update'] = False
+
+        context['title'] = 'Tipos de Rutinas'
+        context['description'] = 'Actualizar un tipo de rutina existente.'
+        context['breadcrumb_items'] = [
+            {'name': 'Inicio', 'url': 'dashboard'},
+            {'name': 'Tipos de Rutinas', 'url': 'rutine_type_list'},
+            {'name': 'Actualizar'}
+        ]
         return context

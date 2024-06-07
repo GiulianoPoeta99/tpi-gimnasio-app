@@ -15,5 +15,11 @@ class RutineTypeDeleteView(DeleteView):
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Confirmar eliminación de tipo de rutina'
+        context['title'] = 'Tipos de Rutinas'
+        context['description'] = 'Eliminar un tipo de rutina específica.'
+        context['breadcrumb_items'] = [
+            {'name': 'Inicio', 'url': 'dashboard'},
+            {'name': 'Tipos de Rutinas', 'url': 'rutine_type_list'},
+            {'name': 'Eliminar'}
+        ]
         return context

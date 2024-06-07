@@ -9,7 +9,7 @@ class RutineDetailView(DetailView):
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Detalle Rutina'
+        context['title'] = 'Rutinas'
         context['description'] = 'Todos los detalles de una rutina especifica.'
         context['breadcrumb_items'] = [
             {'name': 'Inicio', 'url': 'dashboard'},

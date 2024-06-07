@@ -8,20 +8,17 @@
 <table class="table table-striped" id="table1">
     <thead>
         <tr>
-            {% for header in headers %}
-                <th>{{ header }}</th>
-            {% endfor %}
             {% if table_actions.active %}
                 <th>Acciones</th>
             {% endif %}
+            {% for header in headers %}
+                <th>{{ header }}</th>
+            {% endfor %}
         </tr>
     </thead>
     <tbody>
         {% for row in rows %}
             <tr>
-                {% for cell in row %}
-                    <td>{{ cell }}</td>
-                {% endfor %}
                 {% if table_actions.active %}
                     <td>
                         {% for action in table_actions.buttons %}
@@ -38,6 +35,9 @@
                         {% endfor %}
                     </td>
                 {% endif %}
+                {% for cell in row %}
+                    <td>{{ cell }}</td>
+                {% endfor %}
             </tr>
         {% endfor %}
     </tbody>

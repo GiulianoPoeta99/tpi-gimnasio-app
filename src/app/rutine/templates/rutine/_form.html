@@ -53,11 +53,12 @@
 
             <div class="col-12 d-flex justify-content-end">
                 {% if is_update %}
-                <button type="submit" class="btn btn-primary me-1 mb-1">Actualizar</button>
+                    <button type="submit" class="btn btn-primary me-1 mb-1">Actualizar</button>
+                    <a href="{% url 'rutine_detail' pk=object.pk %}" class="btn btn-danger me-1 mb-1">Cancelar</a>
                 {% else %}
                     <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
+                    <a href="{% url 'rutine_list' %}" class="btn btn-danger me-1 mb-1">Cancelar</a>
                 {% endif %}
-                <a href="{% url 'rutine_list' %}" class="btn btn-danger me-1 mb-1">Cancelar</a>
             </div>
         </div>
     </div>
