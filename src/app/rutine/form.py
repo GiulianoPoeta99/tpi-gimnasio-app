@@ -24,7 +24,6 @@ class RutineForm(forms.ModelForm):
             'id': 'user'
         })
     )
-    
     difficulty_level = forms.ModelChoiceField(
         queryset=DifficultyLevel.objects.all(),
         label='Nivel de Dificultad',
@@ -34,7 +33,6 @@ class RutineForm(forms.ModelForm):
             'id': 'difficulty_level'
         })
     )
-    
     rutine_type = forms.ModelMultipleChoiceField(
         queryset=RutineType.objects.all(),
         label='Tipos de Rutina',
@@ -44,7 +42,6 @@ class RutineForm(forms.ModelForm):
             'id': 'rutine_type'
         })
     )
-
     rutine_exercises = forms.ModelMultipleChoiceField(
         queryset=Exercise.objects.all(),
         label='Ejercicios',
@@ -54,7 +51,6 @@ class RutineForm(forms.ModelForm):
             'id': 'rutine_exercises'
         })
     )
-
     user_rutine = forms.ModelMultipleChoiceField(
         queryset=User.objects.all(),
         label='Usuarios que la eligieron',
