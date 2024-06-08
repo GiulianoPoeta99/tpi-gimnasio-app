@@ -30,6 +30,15 @@ def sidebar(request):
                 "url": "rutine_type_list",
                 "icon": "gear-fill",
             },
+            {
+                "separator": True,
+                "title": "Entrenadores"
+            },
+            {
+                "title": "Entrenadores",
+                "url": "trainer_list",
+                "icon": "person-fill",
+            },
         ],
     }    
     return {'sidebar_menu': menu}

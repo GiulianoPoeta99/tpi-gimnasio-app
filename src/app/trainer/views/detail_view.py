@@ -1,12 +1,18 @@
 from django.views.generic import DetailView
-from django.contrib.auth.mixins import UserPassesTestMixin
 from app.trainer.model import Trainer
 
-
-class TrainerDetailView(UserPassesTestMixin, DetailView):
+class TrainerDetailView(DetailView):
     model = Trainer
-    template_name = 'trainer_detail.html'
+    template_name = 'trainer/detail.html'
     context_object_name = 'trainer'
 
-    def test_func(self):
-        return self.request.user.is_staff
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Entrenadores'
+        context['description'] = 'Todos los detalles de un entrenador específico.'
+        context['breadcrumb_items'] = [
+            {'name': 'Inicio', 'url': 'dashboard'},
+            {'name': 'Entrenadores', 'url': 'trainer_list'},
+            {'name': 'Detalle'}
+        ]
+        return context

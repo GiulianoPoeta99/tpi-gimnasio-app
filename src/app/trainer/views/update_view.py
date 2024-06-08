@@ -1,14 +1,24 @@
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView
-from django.contrib.auth.mixins import UserPassesTestMixin
-from app.trainer.model import Trainer
 from app.trainer.form import TrainerForm
+from app.trainer.model import Trainer
 
-class TrainerUpdateView(UserPassesTestMixin, UpdateView):
+class TrainerUpdateView(UpdateView):
     model = Trainer
-    template_name = 'trainer_form.html'
+    template_name = 'trainer/update.html'
     form_class = TrainerForm
-    success_url = reverse_lazy('trainer_list')
 
-    def test_func(self):
-        return self.request.user.is_staff # Solo permite acceso a la vista de entrenador si es admin , esto lo tenemos que cambiar a algun atributo que diga si es entrenador o no , pero hay que ver si lo ponemos en el registro o que 
+    def get_success_url(self):
+        return reverse_lazy('trainer_detail', kwargs={'pk': self.object.pk})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_update'] = True
+        context['title'] = 'Entrenadores'
+        context['description'] = 'Actualizar un entrenador existente.'
+        context['breadcrumb_items'] = [
+            {'name': 'Inicio', 'url': 'dashboard'},
+            {'name': 'Entrenadores', 'url': 'trainer_list'},
+            {'name': 'Actualizar'}
+        ]
+        return context
