@@ -20,14 +20,14 @@ class AssignRutineListView(ListView):
             {'name': 'Rutinas asignadas'}
         ]
 
-        queryset = self.get_queryset()
+        queryset = self.get_queryset().values_list('id', 'user__email', 'trainer__user__email', 'rutine__name')
         context['headers'] = [
             'N° de referencia', 
             AssignRutine._meta.get_field('user').verbose_name,
             AssignRutine._meta.get_field('trainer').verbose_name,
             AssignRutine._meta.get_field('rutine').verbose_name
         ]
-        context['rows'] = list(queryset.values_list('id', 'user__email', 'trainer', 'rutine__name'))
+        context['rows'] = list(queryset)
         context['table_actions'] = {
             'active': True,
             'buttons': [
