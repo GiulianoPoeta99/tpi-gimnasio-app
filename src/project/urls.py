@@ -12,4 +12,5 @@ urlpatterns = [
     path('progress/', include('app.progress.urls')),
     path('rutine/', include('app.rutine.urls')),
     path('rutine-type/', include('app.rutine_type.urls')),
+    path('assign-rutine/', include('app.assign_rutine.urls')),
 ]

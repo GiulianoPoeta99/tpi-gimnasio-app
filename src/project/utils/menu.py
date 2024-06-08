@@ -31,6 +31,11 @@ def sidebar(request):
                 "icon": "gear-fill",
             },
             {
+                "title": "Asignación de rutinas",
+                "url": "assign_rutine_list",
+                "icon": "calendar-check-fill",
+            },
+            {
                 "separator": True,
                 "title": "Entrenadores"
             },

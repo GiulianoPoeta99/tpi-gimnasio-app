@@ -7,6 +7,7 @@ class RutineTypeDetailView(DetailView):
     model = RutineType
     template_name = 'rutine_type/detail.html'
     
+    # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Tipos de Rutinas'

@@ -17,6 +17,9 @@ class Rutine(models.Model):
 
     objects = RutineManager()
 
+    def __str__(self):
+        return self.name
+
     def clean(self):
         if self.difficulty_level is None:
             raise ValidationError("Debe especificar un nivel de dificultad para la rutina.")

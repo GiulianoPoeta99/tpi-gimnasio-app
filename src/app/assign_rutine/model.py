@@ -7,9 +7,9 @@ from app.rutine.model import Rutine
 
 # Create your models here.
 class AssignRutine(models.Model):
-    user = models.ForeignKey(User, on_delete=models.RESTRICT)
-    trainer = models.ForeignKey(Trainer, on_delete=models.RESTRICT)
-    rutine = models.ForeignKey(Rutine, on_delete=models.RESTRICT)
+    user = models.ForeignKey(User, on_delete=models.RESTRICT, verbose_name='Usuario')
+    trainer = models.ForeignKey(Trainer, on_delete=models.RESTRICT, verbose_name='Entrenador')
+    rutine = models.ForeignKey(Rutine, on_delete=models.RESTRICT, verbose_name='Rutina')
 
     objects = AssignRutineManager()
 

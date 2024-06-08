@@ -2,7 +2,7 @@ from django.views.generic import DetailView
 
 from app.assign_rutine.model import AssignRutine
 
-class RutineDetailView(DetailView):
+class AssignRutineDetailView(DetailView):
     model = AssignRutine
     template_name = 'assign_rutine/detail.html'
     context_object_name = 'assign rutine'
@@ -10,5 +10,11 @@ class RutineDetailView(DetailView):
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Detalle asignar rutina'
+        context['title'] = 'Rutinas asignadas'
+        context['description'] = 'Todos los detalles de una asignación de rutina especifica.'
+        context['breadcrumb_items'] = [
+            {'name': 'Inicio', 'url': 'dashboard'},
+            {'name': 'Rutinas asignadas', 'url': 'assign_rutine_list'},
+            {'name': 'Detalle'}
+        ]
         return context
