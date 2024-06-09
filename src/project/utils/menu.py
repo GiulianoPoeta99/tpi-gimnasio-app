@@ -44,6 +44,15 @@ def sidebar(request):
                 "url": "trainer_list",
                 "icon": "person-fill",
             },
+            {
+                "separator": True,
+                "title": "Progreso"
+            },
+            {
+                "title": "Progreso",
+                "url": "progress_list",
+                "icon": "person-fill",
+            },
         ],
     }    
     return {'sidebar_menu': menu}
