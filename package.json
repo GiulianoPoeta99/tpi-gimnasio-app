@@ -4,7 +4,6 @@
   "description": "Creación y gestion de rutinas",
   "scripts": {
     "prepare": "husky install",
-    "release": "standard-version",
     "commit": "cz"
   },
   "devDependencies": {

@@ -38,13 +38,4 @@ npm run prepare
 
 Para realizar un commit utilizaremos la sección de git del VSCode y en el repositorio utilizado apretaremos el botón de conventional commits que es un circulo. Este nos abrira un menu con un pequeño formulario de con opciones para poder hacer el commit con la convención de manera correcta.
 
-Otra forma es por la terminal ejecutando el comando `npm run commit` que abrira un interfaz en la ter minal para realizar el commit de manera correcta-
-
-### Release
-
-Utilizamos el comando `npm run release` para realizar la creación de una versión y que se actualice la versión del archivo ***"package.json"*** además de la creación del archivo ***"CHAGENLOG.md"*** donde se visualizaran los cambios. Luego de esto también se creara un commit con la convención de commits donde se agregara las tags al repositorio de git.
-
-```bash
-npm run release
-git push --follow-tags origin main # subir las tags nuevas al repositorio
-```
+Otra forma es por la terminal ejecutando el comando `npm run commit` que abrira un interfaz en la ter minal para realizar el commit de manera correcta.
