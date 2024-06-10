@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/GiulianoPoeta99/tpi-gimnasio/compare/v0.0.4...v0.0.5) (2024-06-10)
+
+
+### Features
+
+* **backend:** :recycle: se arreglo crud trainer y se cambio logo ([73f7177](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/73f7177548e92384ae797ebebab5920c5bf8b2ff))
+* **backend:** :sparkles: CRUD progress ([9eed5f9](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/9eed5f96d70ac5989730867c7a77df79c0f7c731))
+* **backend:** :sparkles: CRUD trainers funcional ([cc80135](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/cc801358785b1d24be843f16f7447e3eb9e1f94c))
+* **frontend:** :sparkles: Se agregaron los errores de 403,404 y 500 ([705bd2b](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/705bd2b2337ef5c7950e7b73b9ff7f39c9715a44))
+* **frontend:** :sparkles: Se aro el primer crud ([2a09974](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/2a099740fe2757b5771252afaf77395f15e37e9a))
+* **frontend:** :sparkles: SE creo el CRUD de assign rutine ([053bb8b](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/053bb8ba2c02500e8fccc8fac26718b885a41def))
+* **frontend:** :sparkles: Se creo el CRUD de tipos de rutinas ([a055464](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/a055464bbdae558b32f9863b6f7982c731755828))
+
+
+### Bug Fixes
+
+* **backend:** :bug: Se arreglaron las relaciones de los modelos ([253cab3](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/253cab39a79bd6c072692aeed41fd934a088739c))
+* **frontend:** :ambulance: Se me pasaron unos archivos del crud de assign ([15b64d5](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/15b64d58355ef7f9c793a4e7a952c40c25355928))
+* **frontend:** :bug: Se arreglo error de logica ([9f7c505](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/9f7c505f00874eb247413ca62b97a6a82a0baa39))
+* **frontend:** :bug: Se arreglo la duplicacion por el nn ([136e229](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/136e229538c10da8ed816adfe73b6659972495d4))
+* **frontend:** :bug: Se arreglo las redirecciones del menu ([a856a97](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/a856a979647ea081e79e4ae598143c0ca0d05356))
+* **frontend:** :bug: SE termino el crud de rutina ([cbfb94c](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/cbfb94c2bc37b1e1d621c5963d9c5646855de183))
+* **frontend:** :lipstick: Se arreglo la pagina de inicio para que funcione de manera generica ([1fdd8a4](https://github.com/GiulianoPoeta99/tpi-gimnasio/commit/1fdd8a473259b1310ed65393cd998d9c2f67e996))
+
 ### [0.0.4](https://github.com/GiulianoPoeta99/tpi-gimnasio/compare/v0.0.3...v0.0.4) (2024-06-05)
 
 
