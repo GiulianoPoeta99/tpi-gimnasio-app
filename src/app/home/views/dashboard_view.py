@@ -1,6 +1,14 @@
-from django.shortcuts import render
-from django.views import View
+from django.views.generic import TemplateView
 
-class DashboardView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'base/index.html')
+class DashboardView(TemplateView):
+    template_name = 'home/dashboard.html'
+    
+    # override
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Inicio'
+        context['description'] = 'Pagina de inicio de MotionPath.'
+        context['breadcrumb_items'] = [
+            {'name': 'Inicio'},
+        ]
+        return context

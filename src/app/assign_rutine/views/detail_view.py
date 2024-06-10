@@ -5,7 +5,6 @@ from app.assign_rutine.model import AssignRutine
 class AssignRutineDetailView(DetailView):
     model = AssignRutine
     template_name = 'assign_rutine/detail.html'
-    context_object_name = 'assign rutine'
 
     # override
     def get_context_data(self, **kwargs):
