@@ -27,7 +27,7 @@ class ExerciseForm(forms.ModelForm):
     )
     ExerciseType = forms.ModelMultipleChoiceField(
         queryset=ExerciseType.objects.all(),
-        label='Tipos de Ejercicio'
+        label='Tipos de Ejercicio',
         widget=forms.CheckboxSelectMultiple()
     )
 
