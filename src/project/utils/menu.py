@@ -51,7 +51,16 @@ def sidebar(request):
             {
                 "title": "Progreso",
                 "url": "progress_list",
-                "icon": "person-fill",
+                "icon": "graph-up-arrow",
+            },
+            {
+                "separator": True,
+                "title": "Exercise"
+            },
+            {
+                "title": "Exercise",
+                "url": "exercise_list",
+                "icon": "person-walking",
             },
         ],
     }    

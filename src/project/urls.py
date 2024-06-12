@@ -10,6 +10,7 @@ urlpatterns = [
     path('user/', include('app.user.urls')),
     path('trainer/', include('app.trainer.urls')),
     path('progress/', include('app.progress.urls')),
+    path('exercise/', include('app.exercise.urls')),
     path('rutine/', include('app.rutine.urls')),
     path('rutine-type/', include('app.rutine_type.urls')),
     path('assign-rutine/', include('app.assign_rutine.urls')),
