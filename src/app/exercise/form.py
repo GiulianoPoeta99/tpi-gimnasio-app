@@ -17,18 +17,27 @@ class ExerciseForm(forms.ModelForm):
     user = forms.ModelChoiceField(
         queryset=User.objects.all(),
         label='Usuario',
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={
+            'class': 'form-control',
+            'id': 'user'
+            })
     )
-    DifficultyLevel = forms.ModelChoiceField(
+    difficulty_level = forms.ModelChoiceField(
         queryset=DifficultyLevel.objects.all(),
         label='Nivel de Dificultad',
         required=False,
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={
+            'class': 'form-control',
+            'id': 'difficulty_level'
+            })
     )
-    ExerciseType = forms.ModelMultipleChoiceField(
+    exercise_type = forms.ModelMultipleChoiceField(
         queryset=ExerciseType.objects.all(),
-        label='Tipos de Ejercicio'
-        widget=forms.CheckboxSelectMultiple()
+        label='Tipos de Ejercicio',
+        widget=forms.SelectMultiple(attrs={
+            'class': 'choices form-select form-control-lg multiple-remove',
+            'id': 'exercise_type'
+        })
     )
 
     class Meta:
