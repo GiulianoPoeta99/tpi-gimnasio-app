@@ -1,0 +1,17 @@
+{% extends "base/layout.html" %}
+
+{% block content %}
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">
+                Listado
+            </h3>
+        </div>
+        <div class="card-body">
+            <a href="{% url 'exercise_creeate' %}" class="btn btn-success">Crear ejercicio</a>
+            <hr>
+        </div>
+    </div>
+
+{% endblock content %}
