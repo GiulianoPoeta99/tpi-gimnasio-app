@@ -10,7 +10,7 @@ class Exercise (models.Model):
     name = models.CharField(max_length=100)
     exercise_type = models.ForeignKey(ExerciseType, on_delete=models.RESTRICT, null=True)
     difficulty_level = models.ForeignKey(DifficultyLevel, on_delete=models.RESTRICT, null=True)
-    user = models.ForeignKey(User, on_delete=models.RESTRICT, related_name='exercises', null=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='exercises', null=True, blank=True)
 
     objects = ExerciseManager()
 
