@@ -18,6 +18,15 @@ def sidebar(request):
             },
             {
                 "separator": True,
+                "title": "Usuario"
+            },
+            {
+                "title": "Usuario",
+                "url": "user_list",
+                "icon": "person-fill",
+            },
+            {
+                "separator": True,
                 "title": "Rutinas"
             },
             {
@@ -42,7 +51,7 @@ def sidebar(request):
             {
                 "title": "Entrenadores",
                 "url": "trainer_list",
-                "icon": "person-fill",
+                "icon": "person-video2",
             },
             {
                 "separator": True,
