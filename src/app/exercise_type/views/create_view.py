@@ -12,11 +12,7 @@ class ExerciseTypeCreateView(CreateView):
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.get_object:
-            context['is_update'] = True
-        else:
-            context['is_update'] = False
-        
+        context['is_update'] = False
         context['title'] = 'Tipos de Ejercicios'
         context['description'] = 'Crear un nuevo tipo de ejercicio.'
         context['breadcrum_items'] = [

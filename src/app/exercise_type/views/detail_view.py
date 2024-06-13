@@ -1,4 +1,3 @@
-from typing import Any
 from django.views.generic import DetailView
 
 from app.exercise_type.model import ExerciseType
@@ -14,7 +13,7 @@ class ExerciseTypeDetailView(DetailView):
         context['description'] = 'Todos los detalles de un tipo de ejercicio especifico.'
         context['breadcrumb_items'] = [
             {'name': 'Inicio', 'url': 'dashboard'},
-            {'name': 'Tipos de Ejercicios', 'url': 'dashboard'},
+            {'name': 'Tipos de Ejercicios', 'url': 'exercise_type_list'},
             {'name': 'Detalle'}
         ]
         return context
