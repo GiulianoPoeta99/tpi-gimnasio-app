@@ -64,10 +64,10 @@ def sidebar(request):
             },
             {
                 "separator": True,
-                "title": "Exercise"
+                "title": "Ejercicio"
             },
             {
-                "title": "Exercise",
+                "title": "Ejercicio",
                 "url": "exercise_list",
                 "icon": "person-walking",
             },
@@ -80,7 +80,13 @@ def sidebar(request):
                 "title": "Musculos",
                 "url": "muscle_exercise_list",
                 "icon": "person-arms-up",
+            },
+            {
+                "title": "Nivel de dificultad",
+                "url": "difficulty_level_list",
+                "icon": "sort-numeric-up-alt",
             }
+
 
         ],
     }    

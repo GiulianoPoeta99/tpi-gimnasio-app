@@ -6,6 +6,26 @@ from app.difficulty_level.model import DifficultyLevel
 
 class DifficultyLevelUpdateView(UpdateView):
     model = DifficultyLevel
-    template_name = 'update.html'
+    template_name = 'difficulty_level/update.html'
     form_class = DifficultyLevelForm
-    success_url = reverse_lazy('list')
+    
+    # override
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.object:
+            context['is_update'] = True
+        else:
+            context['is_update'] = False
+
+        context['title'] = 'Niveles de Dificultad'
+        context['description'] = 'Actualizar un nivel de dificultad existente.'
+        context['breadcrumb_items'] = [
+            {'name': 'Inicio', 'url': 'dashboard'},
+            {'name': 'Niveles de Dificultad', 'url': 'difficulty_level_list'},
+            {'name': 'Actualizar'}
+        ]
+        return context
+
+    # override
+    def get_success_url(self):
+        return reverse_lazy('difficulty_level_detail', kwargs={'pk': self.object.pk})
