@@ -62,6 +62,12 @@ def sidebar(request):
                 "url": "exercise_list",
                 "icon": "person-walking",
             },
+            {
+                "title": "Tipo de ejercicios",
+                "url": "exercise_type_list",
+                "icon": "person-arms-up",
+            }
+
         ],
     }    
     return {'sidebar_menu': menu}

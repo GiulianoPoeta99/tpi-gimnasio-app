@@ -15,4 +15,5 @@ urlpatterns = [
     path('rutine-type/', include('app.rutine_type.urls')),
     path('assign-rutine/', include('app.assign_rutine.urls')),
     path('exercise/', include('app.exercise.urls')),  
+    path('exercise-type/', include('app.exercise_type.urls')),  
 ]
