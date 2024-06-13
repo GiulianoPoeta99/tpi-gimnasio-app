@@ -1,7 +1,7 @@
 from django import forms
 from app.muscle_exercise.model import MuscleExercise
 
-class MuscleExercise(forms.ModelForm):
+class MuscleExerciseForm(forms.ModelForm):
     name = forms.CharField(
         label= 'Nombre del ejercicio del musculo',
         max_length= 100,

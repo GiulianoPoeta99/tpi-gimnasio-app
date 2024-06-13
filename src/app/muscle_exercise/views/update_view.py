@@ -6,6 +6,26 @@ from app.muscle_exercise.model import MuscleExercise
 
 class MuscleExerciseUpdateView(UpdateView):
     model = MuscleExercise
-    template_name = 'update.html'
+    template_name = 'muscle_exercise/update.html'
     form_class = MuscleExerciseForm
-    success_url = reverse_lazy('list')
+    
+    # override
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.object:
+            context['is_update'] = True
+        else:
+            context['is_update'] = False
+
+        context['title'] = 'Musculos'
+        context['description'] = 'Actualizar un musculo existente.'
+        context['breadcrumb_items'] = [
+            {'name': 'Inicio', 'url': 'dashboard'},
+            {'name': 'Musculos', 'url': 'muscle_exercise_list'},
+            {'name': 'Actualizar'}
+        ]
+        return context
+
+    # override
+    def get_success_url(self):
+        return reverse_lazy('muscle_exercise_detail', kwargs={'pk': self.object.pk})

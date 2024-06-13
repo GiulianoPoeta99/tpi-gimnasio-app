@@ -65,6 +65,11 @@ def sidebar(request):
             {
                 "title": "Tipo de ejercicios",
                 "url": "exercise_type_list",
+                "icon": "bar-chart-steps",
+            },
+            {
+                "title": "Musculos",
+                "url": "muscle_exercise_list",
                 "icon": "person-arms-up",
             }
 
