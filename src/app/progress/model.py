@@ -3,7 +3,7 @@ from app.user.model import User  # Asegúrate de que el import sea correcto
 from app.exercise.model import Exercise
 
 class Progress(models.Model):
-    user = models.ForeignKey(User, on_delete=models.RESTRICT)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     exercises = models.ManyToManyField(Exercise)
     weight = models.FloatField()
     repetitions = models.IntegerField() 
