@@ -27,7 +27,7 @@ body {
     color: white !important;
     transition: color 0.3s;
     margin-left: 30px;
-    padding-right: 42px;
+    padding-right: 54px;
 }
 
 .navbar-nav .nav-link:hover, .social-links a:hover {
