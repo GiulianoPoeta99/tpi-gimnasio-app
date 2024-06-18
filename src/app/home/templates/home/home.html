@@ -41,9 +41,6 @@
                 <h1>Welcome, {{ user.first_name }}!</h1>
                 <h2>start creating your routines</h2>
                 <p>in MotionPath</p>
-                {% if user.is_staff %}
-                    <a href="{% url 'admin_dashboard' %}" class="btn btn-warning me-2">Admin</a>
-                {% endif %}
                 <form method="post" action="{% url 'user_logout' %}" class="d-inline">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-secondary">Log out</button>

@@ -9,7 +9,7 @@ from app.user.form import SignUpForm
 class SignUpView(CreateView):
     model = User
     form_class = SignUpForm
-    template_name = 'sign_up.html'
+    template_name = 'home/sign_up.html'
     
     def get_success_url(self):
         return reverse_lazy('dashboard')
