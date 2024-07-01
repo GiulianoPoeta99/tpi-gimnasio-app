@@ -1,9 +1,10 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
 
 from app.difficulty_level.model import DifficultyLevel
 
-class DifficultyLevelDeleteView(DeleteView):
+class DifficultyLevelDeleteView(LoginRequiredMixin, DeleteView):
     model = DifficultyLevel
     template_name = 'difficulty_level/delete.html'
     success_url = reverse_lazy('difficulty_level_list')

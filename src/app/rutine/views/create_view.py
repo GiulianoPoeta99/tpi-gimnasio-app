@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 from app.rutine.form import RutineForm
 from app.rutine.model import Rutine
 
-class RutineCreateView(CreateView):
+class RutineCreateView(LoginRequiredMixin, CreateView):
     model = Rutine
     template_name = 'rutine/create.html'
     form_class = RutineForm

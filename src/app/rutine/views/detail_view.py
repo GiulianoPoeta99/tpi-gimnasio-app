@@ -1,8 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
 
 from app.rutine.model import Rutine
 
-class RutineDetailView(DetailView):
+class RutineDetailView(LoginRequiredMixin, DetailView):
     model = Rutine
     template_name = 'rutine/detail.html'
 

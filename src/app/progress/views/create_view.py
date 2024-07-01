@@ -1,9 +1,11 @@
-from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
+from django.urls import reverse_lazy
+
 from app.progress.model import Progress
 from app.progress.form import ProgressForm
 
-class ProgressCreateView(CreateView):
+class ProgressCreateView(LoginRequiredMixin, CreateView):
     model = Progress
     template_name = 'progress/create.html'
     form_class = ProgressForm

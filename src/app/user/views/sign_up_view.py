@@ -1,8 +1,8 @@
-from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.urls import reverse_lazy
+
 from app.user.model import User
 from app.user.form import SignUpForm
 

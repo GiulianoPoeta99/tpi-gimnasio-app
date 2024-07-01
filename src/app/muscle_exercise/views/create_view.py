@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 from app.muscle_exercise.form import MuscleExerciseForm
 from app.muscle_exercise.model import MuscleExercise
 
-class MuscleExerciseCreateView(CreateView):
+class MuscleExerciseCreateView(LoginRequiredMixin, CreateView):
     model = MuscleExercise
     template_name = 'muscle_exercise/create.html'
     form_class = MuscleExerciseForm

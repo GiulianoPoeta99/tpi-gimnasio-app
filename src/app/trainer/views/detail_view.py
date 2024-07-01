@@ -1,7 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
+
 from app.trainer.model import Trainer
 
-class TrainerDetailView(DetailView):
+class TrainerDetailView(LoginRequiredMixin, DetailView):
     model = Trainer
     template_name = 'trainer/detail.html'
     context_object_name = 'trainer'

@@ -1,8 +1,8 @@
 from django.contrib.auth.views import LoginView
-from django.urls import reverse_lazy
-from django.shortcuts import redirect
 from django.contrib import messages
+from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
+from django.urls import reverse_lazy
 
 class UserLoginView(LoginView):
     template_name = 'user/login.html'

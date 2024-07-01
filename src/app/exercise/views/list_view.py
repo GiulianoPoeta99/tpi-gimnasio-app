@@ -1,10 +1,9 @@
-from typing import Any
-from django.db.models.query import QuerySet
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 from app.rutine.model import Exercise
 
-class ExerciseListView(ListView):
+class ExerciseListView(LoginRequiredMixin, ListView):
     model = Exercise
     template_name = 'exercise/list.html'
     ordering = ['id']

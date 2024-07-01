@@ -1,7 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
+
 from app.trainer.model import Trainer
 
-class TrainerListView(ListView):
+class TrainerListView(LoginRequiredMixin, ListView):
     model = Trainer
     template_name = 'trainer/list.html'
     context_object_name = 'trainers'

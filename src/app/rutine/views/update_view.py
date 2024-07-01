@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 
 from app.rutine.form import RutineForm
 from app.rutine.model import Rutine
 
-class RutineUpdateView(UpdateView):
+class RutineUpdateView(LoginRequiredMixin, UpdateView):
     model = Rutine
     template_name = 'rutine/update.html'
     form_class = RutineForm

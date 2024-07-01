@@ -1,10 +1,9 @@
-from typing import Any
-from django.db.models.query import QuerySet
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 from app.muscle_exercise.model import MuscleExercise
 
-class MuscleExerciseListView(ListView):
+class MuscleExerciseListView(LoginRequiredMixin, ListView):
     model = MuscleExercise
     template_name = 'muscle_exercise/list.html'
     ordering = ['id']

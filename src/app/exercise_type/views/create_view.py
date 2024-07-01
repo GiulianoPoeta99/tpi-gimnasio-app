@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 from app.exercise_type.form import ExerciseTypeForm
 from app.exercise_type.model import ExerciseType
 
-class ExerciseTypeCreateView(CreateView):
+class ExerciseTypeCreateView(LoginRequiredMixin, CreateView):
     model = ExerciseType
     template_name = 'exercise_type/create.html'
     form_class = ExerciseTypeForm
