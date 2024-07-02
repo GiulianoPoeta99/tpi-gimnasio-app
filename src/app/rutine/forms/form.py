@@ -4,7 +4,6 @@ from app.difficulty_level.model import DifficultyLevel
 from app.rutine_type.model import RutineType
 from app.user.model import User
 from app.rutine.model import Rutine
-from app.exercise.model import Exercise
 
 class RutineForm(forms.ModelForm):
     name = forms.CharField(
@@ -13,15 +12,6 @@ class RutineForm(forms.ModelForm):
             'class': 'form-control form-control-lg',
             'placeholder': 'Ingrese el nombre de la rutina',
             'maxlength': 60
-        })
-    )
-    user = forms.ModelChoiceField(
-        queryset=User.objects.all(),
-        label='Usuario',
-        required=True,
-        widget=forms.Select(attrs={
-            'class': 'form-select form-control-lg',
-            'id': 'user'
         })
     )
     difficulty_level = forms.ModelChoiceField(
@@ -42,28 +32,10 @@ class RutineForm(forms.ModelForm):
             'id': 'rutine_type'
         })
     )
-    rutine_exercises = forms.ModelMultipleChoiceField(
-        queryset=Exercise.objects.all(),
-        label='Ejercicios',
-        required=False,
-        widget=forms.SelectMultiple(attrs={
-            'class': 'choices form-select form-control-lg multiple-remove',
-            'id': 'rutine_exercises'
-        })
-    )
-    user_rutine = forms.ModelMultipleChoiceField(
-        queryset=User.objects.all(),
-        label='Usuarios que la eligieron',
-        required=False,
-        widget=forms.SelectMultiple(attrs={
-            'class': 'choices form-select form-control-lg multiple-remove',
-            'id': 'user_rutine'
-        })
-    )
 
     class Meta:
         model = Rutine
-        fields = ['name', 'user', 'difficulty_level', 'rutine_type', 'rutine_exercises', 'user_rutine']
+        fields = ['name', 'difficulty_level', 'rutine_type']
 
     def clean(self):
         cleaned_data = super().clean()

@@ -23,13 +23,32 @@ class OwnRutineListView(LoginRequiredMixin, ListView):
 
         queryset = self.get_queryset()
         context['headers'] = [
+            'N° referencia',
             self.model._meta.get_field('name').verbose_name,
             self.model._meta.get_field('difficulty_level').verbose_name,
             self.model._meta.get_field('rutine_type').verbose_name
         ]
         context['rows'] = queryset.values_list(
+            'id',
             'name',
             'difficulty_level_name',
             'rutine_types'
         )
+        context['table_actions'] = {
+            'active': True,
+            'buttons': [
+                {
+                    'color': 'success',
+                    'url': 'rutine_add_exercises',
+                    'icon': 'plus-lg',
+                    'pk': True
+                },
+                {
+                    'color': 'info',
+                    'url': 'own_rutine_detail',
+                    'icon': 'eye',
+                    'pk': True
+                },
+            ],
+        }
         return context

@@ -5,10 +5,11 @@ from app.rutine.model import Rutine
 class RutineListView(LoginRequiredMixin, ListView):
     model = Rutine
     template_name = 'rutine/list.html'
+    ordering = ['id']
 
     # override
     def get_queryset(self):
-        return Rutine.objects.get_default_table().order_by(*self.model._meta.ordering)
+        return Rutine.objects.get_default_table()
 
     # override
     def get_context_data(self, **kwargs):
@@ -22,15 +23,28 @@ class RutineListView(LoginRequiredMixin, ListView):
 
         queryset = self.get_queryset()
         context['headers'] = [
+            'n° referencia',
             self.model._meta.get_field('name').verbose_name,
             self.model._meta.get_field('difficulty_level').verbose_name,
             self.model._meta.get_field('rutine_type').verbose_name,
             self.model._meta.get_field('user').verbose_name
         ]
         context['rows'] = queryset.values_list(
+            'id',
             'name',
             'difficulty_level_name',
             'rutine_types',
             'full_name'
         )
+        context['table_actions'] = {
+            'active': True,
+            'buttons': [
+                {
+                    'color': 'info',
+                    'url': 'rutine_detail',
+                    'icon': 'eye',
+                    'pk': True
+                },
+            ],
+        }
         return context

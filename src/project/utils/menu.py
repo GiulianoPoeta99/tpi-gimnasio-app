@@ -43,7 +43,7 @@ def sidebar(request):
                     },
                     {
                         "title": "Crear",
-                        "url": "rutine_list",
+                        "url": "rutine_create",
                     },
                 ]
             },

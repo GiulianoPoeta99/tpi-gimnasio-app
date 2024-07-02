@@ -1,20 +1,19 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView
+from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 
 from app.rutine.forms.form import RutineForm
 from app.rutine.model import Rutine
 
-class RutineCreateView(LoginRequiredMixin, CreateView):
+class RutineUpdateView(LoginRequiredMixin, UpdateView):
     model = Rutine
-    template_name = 'rutine/create.html'
+    template_name = 'rutine/updates/update.html'
     form_class = RutineForm
-
-    # override
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
     
+    # override
+    def get_success_url(self):
+        return reverse_lazy('rutine_detail', kwargs={'pk': self.object.pk})
+
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -23,15 +22,11 @@ class RutineCreateView(LoginRequiredMixin, CreateView):
         else:
             context['is_update'] = False
 
-        context['title'] = 'Rutinas'
-        context['description'] = 'Crear una nueva rutina.'
+        context['title'] = self.model._meta.verbose_name_plural
+        context['description'] = 'Actualizar una rutina existente.'
         context['breadcrumb_items'] = [
             {'name': 'Inicio', 'url': 'dashboard'},
             {'name': 'Rutinas', 'url': 'rutine_list'},
-            {'name': 'Crear'}
+            {'name': 'Actualizar'}
         ]
         return context
-    
-    # override
-    def get_success_url(self):
-        return reverse_lazy('rutine_detail', kwargs={'pk': self.object.pk})
