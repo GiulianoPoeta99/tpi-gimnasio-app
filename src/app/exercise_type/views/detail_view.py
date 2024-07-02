@@ -1,9 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 
 from app.exercise_type.model import ExerciseType
 
-class ExerciseTypeDetailView(LoginRequiredMixin, DetailView):
+class ExerciseTypeDetailView(LoginRequiredMixin, SuperAdminRequiredMixin, DetailView):
     model = ExerciseType
     template_name = 'exercise_type/detail.html'
 

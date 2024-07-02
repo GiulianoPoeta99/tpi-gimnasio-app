@@ -99,7 +99,7 @@ def sidebar(request):
                 "icon": "bar-chart-steps",
             },
             {
-                "title": "Musculos",
+                "title": "Músculos",
                 "url": "muscle_exercise_list",
                 "icon": "person-arms-up",
             },

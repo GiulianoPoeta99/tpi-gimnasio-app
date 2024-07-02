@@ -1,11 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 
 from app.difficulty_level.form import DifficultyLevelForm
 from app.difficulty_level.model import DifficultyLevel
 
-class DifficultyLevelUpdateView(LoginRequiredMixin, UpdateView):
+class DifficultyLevelUpdateView(LoginRequiredMixin, SuperAdminRequiredMixin, UpdateView):
     model = DifficultyLevel
     template_name = 'difficulty_level/update.html'
     form_class = DifficultyLevelForm

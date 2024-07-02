@@ -1,11 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 
 from app.muscle_exercise.form import MuscleExerciseForm
 from app.muscle_exercise.model import MuscleExercise
 
-class MuscleExerciseUpdateView(LoginRequiredMixin, UpdateView):
+class MuscleExerciseUpdateView(LoginRequiredMixin, SuperAdminRequiredMixin, UpdateView):
     model = MuscleExercise
     template_name = 'muscle_exercise/update.html'
     form_class = MuscleExerciseForm
@@ -18,11 +19,11 @@ class MuscleExerciseUpdateView(LoginRequiredMixin, UpdateView):
         else:
             context['is_update'] = False
 
-        context['title'] = 'Musculos'
-        context['description'] = 'Actualizar un musculo existente.'
+        context['title'] = 'Músculos'
+        context['description'] = 'Actualizar un músculo existente.'
         context['breadcrumb_items'] = [
             {'name': 'Inicio', 'url': 'dashboard'},
-            {'name': 'Musculos', 'url': 'muscle_exercise_list'},
+            {'name': 'Músculos', 'url': 'muscle_exercise_list'},
             {'name': 'Actualizar'}
         ]
         return context
