@@ -34,6 +34,10 @@ def sidebar(request):
                 'icon': 'calendar4-week',
                 'sub_items': [
                     {
+                        "title": "Crear",
+                        "url": "rutine_create",
+                    },
+                    {
                         "title": "Ver todas",
                         "url": "rutine_list",
                     },
@@ -42,8 +46,12 @@ def sidebar(request):
                         "url": "own_rutine_list",
                     },
                     {
-                        "title": "Crear",
-                        "url": "rutine_create",
+                        "title": "Ver elegidas",
+                        "url": "picked_rutine_list",
+                    },
+                    {
+                        "title": "Elegir una",
+                        "url": "rutine_pick_one",
                     },
                 ]
             },
