@@ -1,8 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
 
 from app.difficulty_level.model import DifficultyLevel
 
-class DifficultyLevelDetailView(DetailView):
+class DifficultyLevelDetailView(LoginRequiredMixin, DetailView):
     model = DifficultyLevel
     template_name = 'difficulty_level/detail.html'
 

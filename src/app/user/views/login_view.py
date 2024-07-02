@@ -1,11 +1,11 @@
 from django.contrib.auth.views import LoginView
-from django.urls import reverse_lazy
-from django.shortcuts import redirect
 from django.contrib import messages
+from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
+from django.urls import reverse_lazy
 
 class UserLoginView(LoginView):
-    template_name = 'home/login.html'
+    template_name = 'user/login.html'
 
     def get_success_url(self):
         return reverse_lazy('dashboard')

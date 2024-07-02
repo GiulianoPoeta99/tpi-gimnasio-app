@@ -1,8 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 from app.assign_rutine.model import AssignRutine
 
-class AssignRutineListView(ListView):
+class AssignRutineListView(LoginRequiredMixin, ListView):
     model = AssignRutine
     template_name = 'assign_rutine/list.html'
 

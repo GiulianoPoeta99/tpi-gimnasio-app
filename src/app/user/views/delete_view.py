@@ -1,11 +1,13 @@
-from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView
 from django.db.models import ProtectedError
-from django.shortcuts import redirect
 from django.contrib import messages
+from django.shortcuts import redirect
+
+from django.urls import reverse_lazy
 from app.user.model import User
 
-class UserDeleteView(DeleteView):
+class UserDeleteView(LoginRequiredMixin, DeleteView):
     model = User
     template_name = 'user/delete.html'
     success_url = reverse_lazy('user_list')

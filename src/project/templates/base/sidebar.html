@@ -37,58 +37,116 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 {% for item in sidebar_menu.menu_items %}
-                    {% if item.separator %}
-                        <li class="sidebar-title">{{ item.title }}</li>
-                    {% else %}
-                        <li class="sidebar-item {% if item.active %}active{% endif %} {% if item.sub_items %}has-sub{% endif %}">
-                            <a 
-                                {% if item.url %}
-                                    href="{% url item.url %}" 
-                                {% else %}
-                                    href="#" 
-                                {% endif %}
-                                class='sidebar-link'
-                            >
-                                <i class="bi bi-{{ item.icon }}"></i>
-                                <span>{{ item.title }}</span>
-                            </a>
-                            {% if item.sub_items %}
-                                <ul class="submenu">
-                                    {% for sub_item in item.sub_items %}
-                                        <li class="submenu-item {% if sub_item.sub_items %}has-sub{% endif %}">
-                                            <a 
-                                                {% if item.url %}
-                                                    href="{% url sub_item.url %}" 
-                                                {% else %}
-                                                    href="#" 
+                    {% if not item.for_admin %}
+                        {% if item.separator %}
+                            <li class="sidebar-title">{{ item.title }}</li>
+                        {% else %}
+                            <li class="sidebar-item {% if item.active %}active{% endif %} {% if item.sub_items %}has-sub{% endif %}">
+                                <a 
+                                    {% if item.url %}
+                                        href="{% url item.url %}" 
+                                    {% else %}
+                                        href="#" 
+                                    {% endif %}
+                                    class='sidebar-link'
+                                >
+                                    <i class="bi bi-{{ item.icon }}"></i>
+                                    <span>{{ item.title }}</span>
+                                </a>
+                                {% if item.sub_items %}
+                                    <ul class="submenu">
+                                        {% for sub_item in item.sub_items %}
+                                            <li class="submenu-item {% if sub_item.sub_items %}has-sub{% endif %}">
+                                                <a 
+                                                    {% if sub_item.url %}
+                                                        href="{% url sub_item.url %}" 
+                                                    {% else %}
+                                                        href="#" 
+                                                    {% endif %}
+                                                    class="submenu-link"
+                                                >
+                                                    {{ sub_item.title }}
+                                                </a>
+                                                {% if sub_item.sub_items %}
+                                                    <ul class="submenu submenu-level-2">
+                                                        {% for sub_sub_item in sub_item.sub_items %}
+                                                            <li class="submenu-item">
+                                                                <a 
+                                                                    {% if sub_sub_item.url %}
+                                                                        href="{% url sub_sub_item.url %}" 
+                                                                    {% else %}
+                                                                        href="#" 
+                                                                    {% endif %}
+                                                                    class="submenu-link"
+                                                                >
+                                                                    {{ sub_sub_item.title }}
+                                                                </a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
                                                 {% endif %}
-                                                class="submenu-link"
-                                            >
-                                                {{ sub_item.title }}
-                                            </a>
-                                            {% if sub_item.sub_items %}
-                                                <ul class="submenu submenu-level-2">
-                                                    {% for sub_sub_item in sub_item.sub_items %}
-                                                        <li class="submenu-item">
-                                                            <a 
-                                                                {% if item.url %}
-                                                                    href="{% url sub_sub_item.url %}" 
-                                                                {% else %}
-                                                                    href="#" 
-                                                                {% endif %}
-                                                                class="submenu-link"
-                                                            >
-                                                                {{ sub_sub_item.title }}
-                                                            </a>
-                                                        </li>
-                                                    {% endfor %}
-                                                </ul>
-                                            {% endif %}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+                    {% else %}
+                        {% if user.is_superuser %}
+                            {% if item.separator %}
+                                <li class="sidebar-title">{{ item.title }}</li>
+                            {% else %}
+                                <li class="sidebar-item {% if item.active %}active{% endif %} {% if item.sub_items %}has-sub{% endif %}">
+                                    <a 
+                                        {% if item.url %}
+                                            href="{% url item.url %}" 
+                                        {% else %}
+                                            href="#" 
+                                        {% endif %}
+                                        class='sidebar-link'
+                                    >
+                                        <i class="bi bi-{{ item.icon }}"></i>
+                                        <span>{{ item.title }}</span>
+                                    </a>
+                                    {% if item.sub_items %}
+                                        <ul class="submenu">
+                                            {% for sub_item in item.sub_items %}
+                                                <li class="submenu-item {% if sub_item.sub_items %}has-sub{% endif %}">
+                                                    <a 
+                                                        {% if sub_item.url %}
+                                                            href="{% url sub_item.url %}" 
+                                                        {% else %}
+                                                            href="#" 
+                                                        {% endif %}
+                                                        class="submenu-link"
+                                                    >
+                                                        {{ sub_item.title }}
+                                                    </a>
+                                                    {% if sub_item.sub_items %}
+                                                        <ul class="submenu submenu-level-2">
+                                                            {% for sub_sub_item in sub_item.sub_items %}
+                                                                <li class="submenu-item">
+                                                                    <a 
+                                                                        {% if sub_sub_item.url %}
+                                                                            href="{% url sub_sub_item.url %}" 
+                                                                        {% else %}
+                                                                            href="#" 
+                                                                        {% endif %}
+                                                                        class="submenu-link"
+                                                                    >
+                                                                        {{ sub_sub_item.title }}
+                                                                    </a>
+                                                                </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    {% endif %}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
                             {% endif %}
-                        </li>
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
             </ul>

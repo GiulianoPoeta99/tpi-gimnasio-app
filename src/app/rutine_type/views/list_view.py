@@ -1,8 +1,10 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 from django.views.generic import ListView
 
 from app.rutine_type.model import RutineType
 
-class RutineTypeListView(ListView):
+class RutineTypeListView(LoginRequiredMixin, SuperAdminRequiredMixin, ListView):
     model = RutineType
     template_name = 'rutine_type/list.html'
     ordering = ['id']

@@ -1,8 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 from app.exercise_type.model import ExerciseType
 
-class ExerciseTypeListView(ListView):
+class ExerciseTypeListView(LoginRequiredMixin, ListView):
     model = ExerciseType
     template_name = 'exercise_type/list.html'
     ordering = ['id']

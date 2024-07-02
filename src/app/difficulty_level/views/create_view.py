@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 from app.difficulty_level.form import DifficultyLevelForm
 from app.difficulty_level.model import DifficultyLevel
 
-class DifficultyLevelCreateView(CreateView):
+class DifficultyLevelCreateView(LoginRequiredMixin, CreateView):
     model = DifficultyLevel
     template_name = 'difficulty_level/create.html'
     form_class = DifficultyLevelForm

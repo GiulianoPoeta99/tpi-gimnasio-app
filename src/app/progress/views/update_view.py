@@ -1,9 +1,11 @@
-from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
+from django.urls import reverse_lazy
+
 from app.progress.form import ProgressForm
 from app.progress.model import Progress
 
-class ProgressUpdateView(UpdateView):
+class ProgressUpdateView(LoginRequiredMixin, UpdateView):
     model = Progress
     template_name = 'progress/update.html'
     form_class = ProgressForm

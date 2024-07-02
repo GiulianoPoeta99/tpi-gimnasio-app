@@ -1,7 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
+
 from app.progress.model import Progress
 
-class ProgressDetailView(DetailView):
+class ProgressDetailView(LoginRequiredMixin, DetailView):
     model = Progress
     template_name = 'progress/detail.html'
     context_object_name = 'progress'

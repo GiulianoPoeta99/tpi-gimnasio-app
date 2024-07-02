@@ -1,15 +1,15 @@
-from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.urls import reverse_lazy
+
 from app.user.model import User
 from app.user.form import SignUpForm
 
 class SignUpView(CreateView):
     model = User
     form_class = SignUpForm
-    template_name = 'home/sign_up.html'
+    template_name = 'user/sign_up.html'
     
     def get_success_url(self):
         return reverse_lazy('dashboard')

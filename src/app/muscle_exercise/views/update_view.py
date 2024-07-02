@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 
 from app.muscle_exercise.form import MuscleExerciseForm
 from app.muscle_exercise.model import MuscleExercise
 
-class MuscleExerciseUpdateView(UpdateView):
+class MuscleExerciseUpdateView(LoginRequiredMixin, UpdateView):
     model = MuscleExercise
     template_name = 'muscle_exercise/update.html'
     form_class = MuscleExerciseForm

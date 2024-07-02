@@ -1,8 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 from app.difficulty_level.model import DifficultyLevel
 
-class DifficultyLevelListView(ListView):
+class DifficultyLevelListView(LoginRequiredMixin, ListView):
     model = DifficultyLevel
     template_name = 'difficulty_level/list.html'
     ordering = ['id']

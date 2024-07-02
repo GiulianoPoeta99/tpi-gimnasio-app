@@ -1,9 +1,12 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
-from app.progress.model import Progress
+
 from django.db.models import Value, CharField
 from django.db.models.functions import Concat
 
-class ProgressListView(ListView):
+from app.progress.model import Progress
+
+class ProgressListView(LoginRequiredMixin, ListView):
     model = Progress
     template_name = 'progress/list.html'
     context_object_name = 'progresses'

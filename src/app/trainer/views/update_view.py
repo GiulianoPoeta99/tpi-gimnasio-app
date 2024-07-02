@@ -1,9 +1,11 @@
-from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
-from app.trainer.form import TrainerForm
-from app.trainer.model import Trainer
+from django.urls import reverse_lazy
 
-class TrainerUpdateView(UpdateView):
+from app.trainer.model import Trainer
+from app.trainer.form import TrainerForm
+
+class TrainerUpdateView(LoginRequiredMixin, UpdateView):
     model = Trainer
     template_name = 'trainer/update.html'
     form_class = TrainerForm

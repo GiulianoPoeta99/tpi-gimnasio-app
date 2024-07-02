@@ -31,34 +31,50 @@
                     {% endif %}
                     <form method="post">
                         {% csrf_token %}
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" name="first_name" class="form-control form-control-xl" placeholder="First Name" required>
-                            <div class="form-control-icon">
-                                <i class="bi bi-person"></i>
+                        <div class="row">
+                            <div class="col col-6">
+                                <div class="form-group position-relative has-icon-left mb-4">
+                                    <input type="text" name="first_name" class="form-control form-control-xl" placeholder="First Name" required>
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-person"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-6">
+                                <div class="form-group position-relative has-icon-left mb-4">
+                                    <input type="text" name="last_name" class="form-control form-control-xl" placeholder="Last Name" required>
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-person"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" name="last_name" class="form-control form-control-xl" placeholder="Last Name" required>
-                            <div class="form-control-icon">
-                                <i class="bi bi-person"></i>
+                        <div class="row">
+                            <div class="col col-12">
+                                <div class="form-group position-relative has-icon-left mb-4">
+                                    <input type="email" name="email" class="form-control form-control-xl" placeholder="Email" required>
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-envelope"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="email" name="email" class="form-control form-control-xl" placeholder="Email" required>
-                            <div class="form-control-icon">
-                                <i class="bi bi-envelope"></i>
+                        <div class="row">
+                            <div class="col col-6">
+                                <div class="form-group position-relative has-icon-left mb-4">
+                                    <input type="password" name="password" class="form-control form-control-xl" placeholder="Password" required>
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-shield-lock"></i>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" name="password" class="form-control form-control-xl" placeholder="Password" required>
-                            <div class="form-control-icon">
-                                <i class="bi bi-shield-lock"></i>
-                            </div>
-                        </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" name="confirm_password" class="form-control form-control-xl" placeholder="Confirm Password" required>
-                            <div class="form-control-icon">
-                                <i class="bi bi-shield-lock"></i>
+                            <div class="col col-6">
+                                <div class="form-group position-relative has-icon-left mb-4">
+                                    <input type="password" name="confirm_password" class="form-control form-control-xl" placeholder="Confirm Password" required>
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-shield-lock"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group position-relative mb-4">
