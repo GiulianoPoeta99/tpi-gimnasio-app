@@ -30,11 +30,25 @@ def sidebar(request):
                 "title": "Rutinas"
             },
             {
-                "title": "Rutinas",
-                "url": "rutine_list",
-                "icon": "calendar4-week",
+                'title': 'Rutinas',
+                'icon': 'calendar4-week',
+                'sub_items': [
+                    {
+                        "title": "Ver todas",
+                        "url": "rutine_list",
+                    },
+                    {
+                        "title": "Ver propias",
+                        "url": "own_rutine_list",
+                    },
+                    {
+                        "title": "Crear",
+                        "url": "rutine_list",
+                    },
+                ]
             },
             {
+                'for_admin': True,
                 "title": "Tipos de rutinas",
                 "url": "rutine_type_list",
                 "icon": "gear-fill",

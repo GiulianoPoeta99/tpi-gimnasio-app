@@ -1,6 +1,5 @@
 from django.urls import path
 import app.user.views as view
-from app.user.views.create_view import UserCreateView
 from app.user.views.list_view import UserListView
 from app.user.views.update_view import UserUpdateView
 from django.contrib.auth.views import LogoutView

@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 
@@ -6,7 +7,7 @@ from app.rutine_type.form import RutineTypeForm
 from app.rutine_type.model import RutineType
 
 
-class RutineTypeUpdateView(LoginRequiredMixin, UpdateView):
+class RutineTypeUpdateView(LoginRequiredMixin, SuperAdminRequiredMixin, UpdateView):
     model = RutineType
     template_name = 'rutine_type/update.html'
     form_class = RutineTypeForm

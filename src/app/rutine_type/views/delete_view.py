@@ -1,11 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
 
 from app.rutine_type.model import RutineType
 
 
-class RutineTypeDeleteView(LoginRequiredMixin, DeleteView):
+class RutineTypeDeleteView(LoginRequiredMixin, SuperAdminRequiredMixin, DeleteView):
     model = RutineType
     template_name = 'rutine_type/delete.html'
     success_url = reverse_lazy('rutine_type_list')

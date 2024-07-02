@@ -11,3 +11,10 @@ class RutineManager(models.Manager):
             difficulty_level_name=models.F('difficulty_level__name'),
             rutine_types=ArrayAgg('rutine_type__name')
         ).values('name', 'full_name', 'difficulty_level_name', 'rutine_types')
+    
+    def get_own_table(self, logged_user):
+        return self.get_queryset().filter(user=logged_user).annotate(
+            full_name=Concat('user__last_name', Value(' '), 'user__first_name', output_field=CharField()),
+            difficulty_level_name=models.F('difficulty_level__name'),
+            rutine_types=ArrayAgg('rutine_type__name')
+        ).values('name', 'full_name', 'difficulty_level_name', 'rutine_types')
