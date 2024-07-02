@@ -17,11 +17,11 @@ class MuscleExerciseCreateView(CreateView):
         else:
             context['is_update'] = False
 
-        context['title'] = 'Musculos'
-        context['description'] = 'Crear un nuevo musculo.'
+        context['title'] = 'Músculos'
+        context['description'] = 'Crear un nuevo músculo.'
         context['breadcrumb_items'] = [
             {'name': 'Inicio', 'url': 'dashboard'},
-            {'name': 'Musculos', 'url': 'muscle_exercise_list'},
+            {'name': 'Músculos', 'url': 'muscle_exercise_list'},
             {'name': 'Crear'}
         ]
         return context

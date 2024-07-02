@@ -11,11 +11,11 @@ class MuscleExerciseDeleteView(DeleteView):
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Musculos'
-        context['description'] = 'Eliminar un musculo específico.'
+        context['title'] = 'Músculos'
+        context['description'] = 'Eliminar un músculo específico.'
         context['breadcrumb_items'] = [
             {'name': 'Inicio', 'url': 'dashboard'},
-            {'name': 'Musculos', 'url': 'muscle_exercise_list'},
+            {'name': 'Músculos', 'url': 'muscle_exercise_list'},
             {'name': 'Eliminar'}
         ]
         return context

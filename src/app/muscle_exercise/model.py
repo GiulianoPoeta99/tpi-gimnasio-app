@@ -11,6 +11,6 @@ class MuscleExercise (models.Model):
         return self.name
     
     class Meta:
-        verbose_name = "Musculo"
-        verbose_name_plural = "Musculos"
+        verbose_name = "Músculo"
+        verbose_name_plural = "Músculos"
         ordering = ['name']

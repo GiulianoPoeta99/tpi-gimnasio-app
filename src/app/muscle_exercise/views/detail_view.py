@@ -11,11 +11,11 @@ class MuscleExerciseDetailView(DetailView):
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Musculos'
-        context['description'] = 'Todos los detalles de un musculo especifíco.'
+        context['title'] = 'Músculos'
+        context['description'] = 'Todos los detalles de un músculo especifíco.'
         context['breadcrumb_items'] = [
             {'name': 'Inicio', 'url': 'dashboard'},
-            {'name': 'Musculos', 'url': 'muscle_exercise_list'},
+            {'name': 'Músculos', 'url': 'muscle_exercise_list'},
             {'name': 'Detalle'}
         ]
         return context
