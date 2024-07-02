@@ -1,9 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 
 from app.muscle_exercise.model import MuscleExercise
 
-class MuscleExerciseListView(LoginRequiredMixin, ListView):
+class MuscleExerciseListView(LoginRequiredMixin, SuperAdminRequiredMixin, ListView):
     model = MuscleExercise
     template_name = 'muscle_exercise/list.html'
     ordering = ['id']

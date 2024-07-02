@@ -1,11 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 
 from app.exercise_type.form import ExerciseTypeForm
 from app.exercise_type.model import ExerciseType
 
-class ExerciseTypeUpdateView(LoginRequiredMixin, UpdateView):
+class ExerciseTypeUpdateView(LoginRequiredMixin, SuperAdminRequiredMixin, UpdateView):
     model = ExerciseType
     template_name = 'exercise_type/update.html'
     form_class = ExerciseTypeForm

@@ -1,14 +1,20 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 
 from app.exercise_type.form import ExerciseTypeForm
 from app.exercise_type.model import ExerciseType
 
-class ExerciseTypeCreateView(LoginRequiredMixin, CreateView):
+class ExerciseTypeCreateView(LoginRequiredMixin, SuperAdminRequiredMixin, CreateView):
     model = ExerciseType
     template_name = 'exercise_type/create.html'
     form_class = ExerciseTypeForm
+    
+    # override
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
     
     # override
     def get_context_data(self, **kwargs):

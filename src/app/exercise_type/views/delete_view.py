@@ -1,10 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 
 from app.exercise_type.model import ExerciseType
 
-class ExerciseTypeDeleteView(LoginRequiredMixin, DeleteView):
+class ExerciseTypeDeleteView(LoginRequiredMixin,SuperAdminRequiredMixin, DeleteView):
     model = ExerciseType
     template_name = 'exercise_type/delete.html'
     success_url = reverse_lazy('exercise_type_list')
