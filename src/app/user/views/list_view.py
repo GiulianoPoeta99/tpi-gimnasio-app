@@ -1,9 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from project.mixins.super_user_mixin import SuperAdminRequiredMixin
 from django.views.generic.list import ListView
 
 from app.user.model import User
 
-class UserListView(LoginRequiredMixin, ListView):
+class UserListView(LoginRequiredMixin, SuperAdminRequiredMixin, ListView):
     model = User
     template_name = 'user/list.html'
     context_object_name = 'users'

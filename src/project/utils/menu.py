@@ -8,19 +8,17 @@ def sidebar(request):
         },
         "menu_items": [
             {
-                "separator": True,
-                "title": "Aplicación"
-            },
-            {
                 "title": "Inicio",
                 "url": "dashboard",
                 "icon": "house-fill",
             },
             {
+                'for_admin': True,
                 "separator": True,
                 "title": "Usuario"
             },
             {
+                'for_admin': True,
                 "title": "Usuario",
                 "url": "user_list",
                 "icon": "person-fill",
