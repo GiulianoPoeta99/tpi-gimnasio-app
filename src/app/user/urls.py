@@ -6,6 +6,7 @@ urlpatterns = [
     path('', view.UserListView.as_view(), name='user_list'),
     path('<int:pk>/', view.UserDetailView.as_view(), name='user_detail'),
     path('profile/', view.UserDetailProfileView.as_view(), name='user_detail_profile'),
+    path('create/', view.UserCreateView.as_view(), name='user_create_profile'),
     path('update/<int:pk>', view.UserUpdateView.as_view(), name='user_update'),
     path('profile/update/', view.UserUpdateProfileView.as_view(), name='user_update_profile'),
     path('delete/<int:pk>', view.UserDeleteView.as_view(), name='user_delete'),
