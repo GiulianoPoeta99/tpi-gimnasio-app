@@ -20,30 +20,13 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div class="col-12">
-                <div class="form-group{% if form.rate.field.required %} mandatory{% endif %}">
-                    <label class="form-label" for="{{ form.rate.id_for_label }}">{{ form.rate.label }}</label>
-                    {{ form.rate }}
-                </div>
-            </div>
-
             <div class="col-12">
                 <div class="form-group{% if form.users.field.required %} mandatory{% endif %}">
-                    <label class="form-label">{{ form.users.label }}</label>
-                    <div class="btn-group" role="group" aria-label="Users">
-                        {% for checkbox in form.users %}
-                            <label class="btn btn-outline-primary" for="{{ checkbox.id_for_label }}">
-                                {{ checkbox.tag }}
-                                {{ checkbox.choice_label }}
-                            </label>
-                        {% endfor %}
-                    </div>
+                    <label class="form-label" for="{{ form.users.id_for_label }}">{{form.users.label}}</label>
+                    {{ form.users }}
                 </div>
             </div>
 
-=======
->>>>>>> bcb91f6ece2dbcfc496d6b15577c919c26283a2b
             <div class="col-12 d-flex justify-content-end">
                 {% if is_update %}
                     <button type="submit" class="btn btn-primary me-1 mb-1">Actualizar</button>

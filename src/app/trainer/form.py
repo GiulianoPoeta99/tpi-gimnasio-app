@@ -22,23 +22,14 @@ class TrainerForm(forms.ModelForm):
         })
     )
 
-<<<<<<< HEAD
-    RATE_CHOICES = [(i, i) for i in range(1, 6)]  
-
-    rate = forms.ChoiceField(
-        label='Calificación',
-        choices=RATE_CHOICES,
-        widget=forms.Select(attrs={
-            'class': 'form-select form-control-lg',
-            'id': 'rate'
-        })
-    )
-
     users = forms.ModelMultipleChoiceField(
         queryset=User.objects.all(),
         label='Usuarios',
         required=False,
-        widget=forms.CheckboxSelectMultiple
+        widget=forms.SelectMultiple(attrs={
+            'class': 'choices form-select form-control-lg multiple-remove',
+            'id': 'users'
+        })
     )
 
 
@@ -46,8 +37,6 @@ class TrainerForm(forms.ModelForm):
         model = Trainer
         fields = ['user', 'is_verify', 'rate', 'users']
 
-=======
     class Meta:
         model = Trainer
         fields = ['user', 'is_verify']
->>>>>>> bcb91f6ece2dbcfc496d6b15577c919c26283a2b
