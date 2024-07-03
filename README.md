@@ -37,3 +37,17 @@ docker compose down
 ```bash
 docker composer exec -it dev bash
 ```
+
+## Manage Django
+
+Para hacer las migraciones hay que hacerlas desde dentro del conteedor, la mayoria de los comando puede seguir el mismo formato
+
+```bash
+docker composer exec dev python manage.py makemigrations
+```
+
+Para aplicarlas es lo mismo
+
+```bash
+docker composer exec dev python manage.py migrate
+```
