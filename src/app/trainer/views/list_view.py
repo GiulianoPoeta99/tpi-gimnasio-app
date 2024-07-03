@@ -22,30 +22,31 @@ class TrainerListView(LoginRequiredMixin, ListView):
         ]
 
         queryset = self.get_queryset()
-        context['headers'] = ['ID', 'Email', 'Verificado', 'Calificación']
-        context['rows'] = queryset.values_list('id', 'user__email', 'is_verify', 'rate')
-        context['table_actions'] = {
-            'active': True,
-            'buttons': [
-                {
-                    'color': 'danger',
-                    'url': 'trainer_delete',
-                    'icon': 'trash',
-                    'pk': True
-                },
-                {
-                    'color': 'primary',
-                    'url': 'trainer_update',
-                    'icon': 'pencil',
-                    'pk': True
-                },
-                {
-                    'color': 'info',
-                    'url': 'trainer_detail',
-                    'icon': 'eye',
-                    'pk': True
-                },
-            ],
-        }
+        context['headers'] = ['N° referencia', 'Email', 'Verificado']
+        context['rows'] = queryset.values_list('id', 'user__email', 'is_verify')
+        # TODO: ver si hace falta hacer botones para la lista de todos los entrenadores
+        # context['table_actions'] = {
+        #     'active': True,
+        #     'buttons': [
+        #         {
+        #             'color': 'danger',
+        #             'url': 'trainer_delete',
+        #             'icon': 'trash',
+        #             'pk': True
+        #         },
+        #         {
+        #             'color': 'primary',
+        #             'url': 'trainer_update',
+        #             'icon': 'pencil',
+        #             'pk': True
+        #         },
+        #         {
+        #             'color': 'info',
+        #             'url': 'trainer_detail',
+        #             'icon': 'eye',
+        #             'pk': True
+        #         },
+        #     ],
+        # }
 
         return context

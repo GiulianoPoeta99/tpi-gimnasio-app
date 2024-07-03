@@ -36,10 +36,10 @@
             </div>
 
             <div class="col-12">
-                <div class="form-group{% if form.is_male.field.required %} mandatory{% endif %}">
-                    <label class="form-label" for="{{ form.is_male.id_for_label }}">{{ form.is_male.label }}</label>
-                    {{ form.is_male }}
-                </div>
+                <fieldset class="form-group{% if form.difficulty_level.field.required %} mandatory{% endif %}">
+                    <label class="form-label" for="{{ form.difficulty_level.id_for_label }}">Genero</label>
+                    {{ form.gender }}
+                </fieldset>
             </div>
 
             <div class="col-12 d-flex justify-content-end">

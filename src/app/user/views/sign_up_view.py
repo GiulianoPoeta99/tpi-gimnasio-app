@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy
 
 from app.user.model import User
-from app.user.form import SignUpForm
+from app.user.forms.sign_up import SignUpForm
 
 class SignUpView(CreateView):
     model = User

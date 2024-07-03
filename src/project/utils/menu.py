@@ -8,44 +8,25 @@ def sidebar(request):
         },
         "menu_items": [
             {
-                "separator": True,
-                "title": "Aplicación"
-            },
-            {
                 "title": "Inicio",
                 "url": "dashboard",
                 "icon": "house-fill",
             },
             {
+                'for_admin': True,
                 "separator": True,
                 "title": "Usuario"
             },
             {
+                'for_admin': True,
                 "title": "Usuario",
                 "url": "user_list",
                 "icon": "person-fill",
             },
+            #! =================================================================
             {
                 "separator": True,
                 "title": "Rutinas"
-            },
-            {
-                'title': 'Rutinas',
-                'icon': 'calendar4-week',
-                'sub_items': [
-                    {
-                        "title": "Ver todas",
-                        "url": "rutine_list",
-                    },
-                    {
-                        "title": "Ver propias",
-                        "url": "own_rutine_list",
-                    },
-                    {
-                        "title": "Crear",
-                        "url": "rutine_create",
-                    },
-                ]
             },
             {
                 'for_admin': True,
@@ -54,19 +35,52 @@ def sidebar(request):
                 "icon": "gear-fill",
             },
             {
-                "title": "Asignación de rutinas",
-                "url": "assign_rutine_list",
-                "icon": "calendar-check-fill",
+                "title": "Crear Rutina",
+                "url": "rutine_create",
+                "icon": "plus-lg",
             },
+            {
+                "title": "Ver todas las rutinas",
+                "url": "rutine_list",
+                "icon": "card-list",
+            },
+            {
+                "title": "Ver rutinas propias",
+                "url": "own_rutine_list",
+                "icon": "list-stars",
+            },
+            {
+                "title": "Ver rutinas elegidas",
+                "url": "picked_rutine_list",
+                "icon": "card-checklist",
+            },
+            {
+                "title": "Elegir una rutina",
+                "url": "rutine_pick_one",
+                "icon": "bookmark-check-fill",
+            },
+            #! =================================================================
             {
                 "separator": True,
                 "title": "Entrenadores"
             },
             {
-                "title": "Entrenadores",
+                'for_trainer': True,
+                "title": "Asignación de rutinas",
+                "url": "assign_rutine_list",
+                "icon": "calendar-check-fill",
+            },
+            {
+                "title": "Ver entrenadores",
                 "url": "trainer_list",
                 "icon": "person-video2",
             },
+            {
+                "title": "Convertirse en entrenador",
+                "url": "trainer_make",
+                "icon": "person-arms-up",
+            },
+            #! =================================================================
             {
                 "separator": True,
                 "title": "Progreso"

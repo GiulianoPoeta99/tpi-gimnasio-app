@@ -7,7 +7,7 @@ from app.trainer.model import Trainer
 
 class TrainerCreateView(LoginRequiredMixin, CreateView):
     model = Trainer
-    template_name = 'trainer/create.html'
+    template_name = 'trainer/creates/create.html'
     form_class = TrainerForm
 
     def get_context_data(self, **kwargs):

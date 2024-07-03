@@ -2,20 +2,20 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 from app.rutine.model import Rutine
 
-class RutineListView(LoginRequiredMixin, ListView):
+class PickedRutineListView(LoginRequiredMixin, ListView):
     model = Rutine
     template_name = 'rutine/list.html'
     ordering = ['id']
 
     # override
     def get_queryset(self):
-        return Rutine.objects.get_default_table()
+        return Rutine.objects.get_picked_table(self.request.user.id)
 
     # override
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = self.model._meta.verbose_name_plural
-        context['description'] = 'Listado de todas las rutinas.'
+        context['description'] = 'Listado de todas las rutinas elegidas por usted.'
         context['breadcrumb_items'] = [
             {'name': 'Inicio', 'url': 'dashboard'},
             {'name': 'Rutinas'}
@@ -36,13 +36,18 @@ class RutineListView(LoginRequiredMixin, ListView):
             'rutine_types',
             'full_name'
         )
-        # TODO: hay que agregar un boton para que se puedan suscribir a esa rutina de manera sencilla
         context['table_actions'] = {
             'active': True,
             'buttons': [
                 {
+                    'color': 'danger',
+                    'url': 'rutine_delete_pick_one',
+                    'icon': 'x-lg',
+                    'pk': True
+                },
+                {
                     'color': 'info',
-                    'url': 'rutine_detail',
+                    'url': 'picked_rutine_detail',
                     'icon': 'eye',
                     'pk': True
                 },
