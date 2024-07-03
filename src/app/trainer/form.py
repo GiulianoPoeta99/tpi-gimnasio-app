@@ -22,17 +22,6 @@ class TrainerForm(forms.ModelForm):
         })
     )
 
-    RATE_CHOICES = [(i, i) for i in range(1, 6)]  # Opciones de 1 a 5
-
-    rate = forms.ChoiceField(
-        label='Calificación',
-        choices=RATE_CHOICES,
-        widget=forms.Select(attrs={
-            'class': 'form-select form-control-lg',
-            'id': 'rate'
-        })
-    )
-
     class Meta:
         model = Trainer
-        fields = ['user', 'is_verify', 'rate']
+        fields = ['user', 'is_verify']

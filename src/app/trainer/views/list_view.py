@@ -22,8 +22,8 @@ class TrainerListView(LoginRequiredMixin, ListView):
         ]
 
         queryset = self.get_queryset()
-        context['headers'] = ['ID', 'Email', 'Verificado', 'Calificación']
-        context['rows'] = queryset.values_list('id', 'user__email', 'is_verify', 'rate')
+        context['headers'] = ['ID', 'Email', 'Verificado']
+        context['rows'] = queryset.values_list('id', 'user__email', 'is_verify')
         context['table_actions'] = {
             'active': True,
             'buttons': [
