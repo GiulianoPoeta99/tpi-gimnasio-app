@@ -25,36 +25,37 @@ def sidebar(request):
                 "url": "user_list",
                 "icon": "person-fill",
             },
+            #! =================================================================
             {
                 "separator": True,
                 "title": "Rutinas"
             },
             {
-                'title': 'Rutinas',
-                'icon': 'calendar4-week',
-                'sub_items': [
-                    {
-                        "title": "Crear",
-                        "url": "rutine_create",
-                    },
-                    {
-                        "title": "Ver todas",
-                        "url": "rutine_list",
-                    },
-                    {
-                        "title": "Ver propias",
-                        "url": "own_rutine_list",
-                    },
-                    {
-                        "title": "Ver elegidas",
-                        "url": "picked_rutine_list",
-                    },
-                    {
-                        "title": "Elegir una",
-                        "url": "rutine_pick_one",
-                    },
-                ]
+                "title": "Crear Rutina",
+                "url": "rutine_create",
+                "icon": "plus-lg",
             },
+            {
+                "title": "Ver todas las rutinas",
+                "url": "rutine_list",
+                "icon": "card-list",
+            },
+            {
+                "title": "Ver rutinas propias",
+                "url": "own_rutine_list",
+                "icon": "list-stars",
+            },
+            {
+                "title": "Ver rutinas elegidas",
+                "url": "picked_rutine_list",
+                "icon": "card-checklist",
+            },
+            {
+                "title": "Elegir una rutina",
+                "url": "rutine_pick_one",
+                "icon": "bookmark-check-fill",
+            },
+            #! =================================================================
             {
                 'for_admin': True,
                 "title": "Tipos de rutinas",
