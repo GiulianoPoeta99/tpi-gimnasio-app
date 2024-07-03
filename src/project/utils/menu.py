@@ -100,16 +100,19 @@ def sidebar(request):
                 "icon": "person-walking",
             },
             {
+                'for_admin': True,
                 "title": "Tipo de ejercicios",
                 "url": "exercise_type_list",
                 "icon": "bar-chart-steps",
             },
             {
+                'for_admin': True,
                 "title": "Músculos",
                 "url": "muscle_exercise_list",
                 "icon": "person-arms-up",
             },
             {
+                'for_admin': True,
                 "title": "Nivel de dificultad",
                 "url": "difficulty_level_list",
                 "icon": "sort-numeric-up-alt",
