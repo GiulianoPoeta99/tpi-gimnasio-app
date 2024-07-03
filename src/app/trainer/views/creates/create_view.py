@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from app.trainer.form import TrainerForm
 from app.trainer.model import Trainer
 
-class TrainerCreateView(CreateView):
+class TrainerCreateView(LoginRequiredMixin, CreateView):
     model = Trainer
     template_name = 'trainer/creates/create.html'
     form_class = TrainerForm
