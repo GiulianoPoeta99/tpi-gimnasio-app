@@ -36,6 +36,7 @@ class RutineListView(LoginRequiredMixin, ListView):
             'rutine_types',
             'full_name'
         )
+        # TODO: hay que agregar un boton para que se puedan suscribir a esa rutina de manera sencilla
         context['table_actions'] = {
             'active': True,
             'buttons': [

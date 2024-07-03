@@ -29,6 +29,12 @@ def sidebar(request):
                 "title": "Rutinas"
             },
             {
+                'for_admin': True,
+                "title": "Tipos de rutinas",
+                "url": "rutine_type_list",
+                "icon": "gear-fill",
+            },
+            {
                 "title": "Crear Rutina",
                 "url": "rutine_create",
                 "icon": "plus-lg",
@@ -55,25 +61,26 @@ def sidebar(request):
             },
             #! =================================================================
             {
-                'for_admin': True,
-                "title": "Tipos de rutinas",
-                "url": "rutine_type_list",
-                "icon": "gear-fill",
+                "separator": True,
+                "title": "Entrenadores"
             },
             {
+                'for_trainer': True,
                 "title": "Asignación de rutinas",
                 "url": "assign_rutine_list",
                 "icon": "calendar-check-fill",
             },
             {
-                "separator": True,
-                "title": "Entrenadores"
-            },
-            {
-                "title": "Entrenadores",
+                "title": "Ver entrenadores",
                 "url": "trainer_list",
                 "icon": "person-video2",
             },
+            {
+                "title": "Convertirse en entrenador",
+                "url": "trainer_make",
+                "icon": "person-arms-up",
+            },
+            #! =================================================================
             {
                 "separator": True,
                 "title": "Progreso"
